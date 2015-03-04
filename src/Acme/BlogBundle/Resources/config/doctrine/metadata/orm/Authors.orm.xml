@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Authors" table="authors">
+    <id name="id" type="integer" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="recordCreation" type="string" column="record_creation" length="255" nullable="true"/>
+    <field name="standardNumber" type="string" column="standard_number" length="255" nullable="true"/>
+    <field name="sourceOfStandardNumber" type="integer" column="source_of_standard_number" nullable="true"/>
+    <field name="catalogingSourceId" type="integer" column="cataloging_source_id" nullable="true"/>
+    <field name="authorName" type="string" column="author_name" length="255" nullable="false"/>
+    <field name="dates" type="string" column="dates" length="255" nullable="true"/>
+    <field name="otherAttributes" type="string" column="other_attributes" length="255" nullable="true"/>
+    <field name="infoSource" type="string" column="info_source" length="255" nullable="true"/>
+    <field name="associatedPlace" type="string" column="associated_place" length="255" nullable="true"/>
+    <field name="occupation" type="text" column="occupation" nullable="false"/>
+    <field name="additionalFormsOfName" type="text" column="additional_forms_of_name" nullable="false"/>
+    <field name="nameInCyrillicScript" type="string" column="name_in_cyrillic_script" length="255" nullable="false"/>
+  </entity>
+</doctrine-mapping>

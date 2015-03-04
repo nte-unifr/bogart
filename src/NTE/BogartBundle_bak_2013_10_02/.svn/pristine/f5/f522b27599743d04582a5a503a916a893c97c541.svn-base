@@ -1,0 +1,11 @@
+{% extends 'SonataAdminBundle:CRUD:show_array.html.twig' %}
+
+{% block field%}
+    {% for key, val in value %}
+        {% if field_description.options.safe %}
+            {{ val|raw }},
+        {% else %}
+            {{ val }},
+        {% endif %}
+    {% endfor %}
+{% endblock %}

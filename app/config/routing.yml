@@ -1,0 +1,175 @@
+#nte_bogart:
+#    resource: "@NTEBogartBundle/Controller/"
+#    type:     annotation
+#    prefix:   /
+
+_homepage:
+    pattern:   /
+#    defaults:  { _controller: SonataAdminBundle:Core:dashboard }
+    defaults: { _controller: FrameworkBundle:Redirect:redirect, route: parcours2, permanent: true, _locale: fr }
+
+#_import:
+#    pattern:   /_import
+#    defaults: { _controller: NTEBogartBundle:Import:index }
+ 
+bogart:
+    requirements: # new
+        _locale: fr|de # new
+    pattern:   /bogart/{_locale}
+    defaults: { _controller: NTEBogartBundle:Default:index, _locale: fr }
+ 
+search:
+    requirements: # new
+        _locale: fr|de # new
+    pattern:   /{_locale}/search
+    defaults: { _controller: NTEBogartBundle:Search:index }
+
+search_page_2:
+    requirements: # new
+        _locale: fr|de # new
+    pattern:   /{_locale}/search/{search}/{page}
+    defaults: { _controller: NTEBogartBundle:Search:index }
+
+search_page:
+    requirements: # new
+        _locale: fr|de # new
+    pattern:   /{_locale}/search/{page}
+    defaults: { _controller: NTEBogartBundle:Search:index }
+ 
+taxon:
+    requirements: # new
+        _locale: fr|de # new
+    pattern:   /{_locale}/taxon
+    defaults: { _controller: NTEBogartBundle:BotaniqueTaxon:index }
+
+taxon_page:
+    requirements: # new
+        _locale: fr|de # new
+    pattern:   /{_locale}/taxon/{page}
+    defaults: { _controller: NTEBogartBundle:BotaniqueTaxon:index }
+
+taxon_show:
+    requirements: # new
+        _locale: fr|de # new
+    pattern:   /{_locale}/taxon/{id}/show
+    defaults: { _controller: NTEBogartBundle:BotaniqueTaxon:show }
+
+parcours:
+    pattern:   /parcours
+    defaults: { _controller: NTEBogartBundle:Parcours:index }
+
+parcours1:
+    pattern:   /parcours/
+    defaults: { _controller: NTEBogartBundle:Parcours:index }
+
+parcours2:
+    requirements: # new
+        _locale: fr|de # new
+    pattern:   /parcours/{_locale}
+    defaults: { _controller: NTEBogartBundle:Parcours:index }
+
+parcours3:
+    requirements: # new
+        _locale: fr|de # new
+    pattern:   /parcours/{_locale}/
+    defaults: { _controller: NTEBogartBundle:Parcours:index }
+
+parcours_show:
+    requirements: # new
+        _locale: fr|de # new
+    pattern:   /parcours/{_locale}/{id}
+    defaults: { _controller: NTEBogartBundle:Parcours:show }
+
+parcours_taxon:
+    requirements: # new
+        _locale: fr|de # new
+    pattern:   /parcours/{_locale}/taxon/{numero}
+    defaults: { _controller: NTEBogartBundle:Parcours:showTaxon }
+
+parcours_taxon2:
+    requirements: # new
+        _locale: fr|de # new
+    pattern:   /parcours/{_locale}/taxon/
+    defaults: { _controller: NTEBogartBundle:Parcours:showTaxon }
+
+_rename_taxons:
+    pattern:   /admin/_rename_taxons/{start}
+    defaults: { _controller: NTEBogartBundle:Default:renameTaxons }
+
+_rename_familles:
+    pattern:   /admin/_rename_familles
+    defaults: { _controller: NTEBogartBundle:Default:renameFamilles }
+
+_rename_taxons_2:
+    pattern:   /admin/_rename_taxons_2/{start}
+    defaults: { _controller: NTEBogartBundle:Default:renameTaxons2 }
+
+# Internal routing configuration to handle ESI
+#_internal:
+#    resource: "@FrameworkBundle/Resources/config/routing/internal.xml"
+#    prefix:   /_internal
+
+fos_user_security:
+    resource: "@FOSUserBundle/Resources/config/routing/security.xml"
+ 
+fos_user_profile:
+    resource: "@FOSUserBundle/Resources/config/routing/profile.xml"
+    prefix: /profile
+ 
+fos_user_register:
+    resource: "@FOSUserBundle/Resources/config/routing/registration.xml"
+    prefix: /register
+ 
+fos_user_resetting:
+    resource: "@FOSUserBundle/Resources/config/routing/resetting.xml"
+    prefix: /resetting
+ 
+fos_user_change_password:
+    resource: "@FOSUserBundle/Resources/config/routing/change_password.xml"
+    prefix: /profile
+
+#SonataAdminBundle
+admin:
+    resource: '@SonataAdminBundle/Resources/config/routing/sonata_admin.xml'
+    requirements: # new
+        _locale: de|fr # new
+    prefix: /{_locale}/admin
+ 
+_sonata_admin:
+    resource: .
+    type: sonata_admin
+    requirements: # new
+        _locale: de|fr # new
+    prefix: /{_locale}/admin
+ 
+_sonata_admin_tmp:
+    pattern: /admin/dashboard
+    defaults: { _controller: FrameworkBundle:Redirect:redirect, route: sonata_admin_dashboard, permanent: true, _locale: fr }
+ 
+_sonata_admin_login_tmp:
+    pattern: /admin/login
+    defaults: { _controller: FrameworkBundle:Redirect:redirect, route: sonata_admin_dashboard, permanent: true, _locale: fr }
+
+#SonataUserBundle
+sonata_user:
+    resource: '@SonataUserBundle/Resources/config/routing/admin_security.xml'
+    requirements: # new
+        _locale: de|fr # new
+    prefix: /{_locale}/admin
+
+#SonataMediaBundle
+gallery:
+    resource: '@SonataMediaBundle/Resources/config/routing/gallery.xml'
+    prefix: /media/gallery
+ 
+media:
+    resource: '@SonataMediaBundle/Resources/config/routing/media.xml'
+    prefix: /media
+
+
+
+
+# test appcache
+appcache:
+    pattern:    /parcours/bogart.appcache
+    defaults: { _controller: NTEBogartBundle:Parcours:appcache }

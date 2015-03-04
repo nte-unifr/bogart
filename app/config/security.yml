@@ -1,0 +1,121 @@
+jms_security_extra:
+    secure_all_services: false
+    expressions: true
+
+security:
+    providers:
+        fos_userbundle:
+            id: fos_user.user_provider.username
+ 
+    acl:
+        connection: default
+ 
+    encoders:
+        FOS\UserBundle\Model\UserInterface: sha512
+ 
+    firewalls:
+        # -> custom firewall for the admin area of the URL
+        admin:
+            pattern:      /(de|fr)/admin(.*) # changed
+            form_login:
+                provider:       fos_userbundle
+                login_path:     sonata_user_admin_security_login # changed
+                use_forward:    false
+                check_path:     sonata_user_admin_security_check # changed
+                failure_path:   null
+            logout:
+                path:           sonata_user_admin_security_logout # changed
+            anonymous:    true
+        # -> end custom configuration
+#        main:
+#            pattern: ^/
+#            form_login:
+#                provider: fos_userbundle
+#                csrf_provider: form.csrf_provider
+#            logout:       true
+#            anonymous:    true
+        # defaut login area for standard users
+        main:
+            pattern:      .*
+            form_login:
+                provider:       fos_userbundle
+                csrf_provider:  form.csrf_provider
+                login_path:     fos_user_security_login # changed
+                use_forward:    false
+                check_path:     fos_user_security_check # changed
+                failure_path:   null
+            logout:       true
+            anonymous:    true
+ 
+#    access_control:
+#        - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
+#        - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
+#        - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
+#        - { path: ^/admin/, role: ROLE_ADMIN }
+    access_control:
+        # URL of FOSUserBundle which need to be available to anonymous users
+        - { path: ^/_wdt, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/_profiler, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/(de|fr)/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
+ 
+        # -> custom access control for the admin area of the URL
+        - { path: ^/(de|fr)/admin/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/(de|fr)/admin/logout$, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/(de|fr)/admin/login-check$, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        # -> end
+ 
+        - { path: ^/(de|fr)/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/(de|fr)/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
+ 
+        # Secured part of the site
+        # This config requires being logged for the whole site and having the admin role for the admin part.
+        # Change these rules to adapt them to your needs
+        - { path: ^/(de|fr)/admin, role: [ROLE_ADMIN, ROLE_SONATA_ADMIN] }
+        - { path: ^/(de|fr)/.*, role: IS_AUTHENTICATED_ANONYMOUSLY }
+ 
+#    role_hierarchy:
+#        ROLE_ADMIN:       ROLE_USER
+#        ROLE_SUPER_ADMIN: [ROLE_USER, ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]
+    role_hierarchy:
+        ROLE_ADMIN:       [ROLE_USER, ROLE_SONATA_ADMIN]
+        ROLE_SUPER_ADMIN: [ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]
+
+#security:
+#    encoders:
+#        Symfony\Component\Security\Core\User\User: plaintext
+
+#    role_hierarchy:
+#        ROLE_ADMIN:       ROLE_USER
+#        ROLE_SUPER_ADMIN: [ROLE_USER, ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]
+
+#    providers:
+#        in_memory:
+#            memory:
+#                users:
+#                    user:  { password: userpass, roles: [ 'ROLE_USER' ] }
+#                    admin: { password: adminpass, roles: [ 'ROLE_ADMIN' ] }
+
+#    firewalls:
+#        dev:
+#            pattern:  ^/(_(profiler|wdt)|css|images|js)/
+#            security: false
+
+#        login:
+#            pattern:  ^/demo/secured/login$
+#            security: false
+
+#        secured_area:
+#            pattern:    ^/demo/secured/
+#            form_login:
+#                check_path: /demo/secured/login_check
+#                login_path: /demo/secured/login
+#            logout:
+#                path:   /demo/secured/logout
+#                target: /demo/
+#            #anonymous: ~
+#            #http_basic:
+#            #    realm: "Secured Demo Area"
+
+#    access_control:
+#        #- { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY, requires_channel: https }
+#        #- { path: ^/_internal/secure, roles: IS_AUTHENTICATED_ANONYMOUSLY, ip: 127.0.0.1 }

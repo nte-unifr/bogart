@@ -1,0 +1,22 @@
+{
+    "name": "zerkalica/semaphore-bundle",
+    "description": "This bundle integrates semaphore library into symfony",
+    "keywords": ["util"],
+    "type": "symfony-bundle",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Stefan Zerkalica",
+            "email": "zerkalica@gmai.com"
+        }
+    ],
+    "require": {
+        "zerkalica/semaphore": "dev-master",
+        "zerkalica/millwright-util": "dev-master"
+    },
+    "autoload": {
+        "psr-0": { "Millwright\\SemaphoreBundle": "" }
+    },
+    "target-dir": "Millwright/SemaphoreBundle",
+    "minimum-stability": "dev"
+}

@@ -1,0 +1,42 @@
+<html>
+<header>
+    {% block title %}<title>BoGart</title>{% endblock %}
+    <link rel="stylesheet" href="{{ asset('bundles/ntebogart/stylesheets/foundation.min.css') }}" type="text/css" media="all" />
+    <link rel="stylesheet" href="{{ asset('bundles/ntebogart/stylesheets/app.css') }}" type="text/css" media="all" />
+
+    <script src="{{ asset('bundles/ntebogart/javascripts/modernizr.foundation.js') }}" type="text/javascript"></script>
+    
+    <style>
+        body {line-height: 1.6em;}
+    </style>
+</header>
+<body>
+
+    <div class="row">
+        <div class="twelve columns">
+        
+            {% block entete %}
+                <h1><img src="{{ asset('bundles/ntebogart/images/logo.png') }}" alt="BoGart (logo)" /></h1>
+                <!-- Entire Navbar Code -->
+                <ul class="nav-bar">
+                  <li class="active"><a href="{{ path('bogart') }}">Accueil</a></li>
+                  <li><a href="{{ path('taxon') }}">Taxons</a></li>
+                  <li>
+                    <a href="{{ path('search') }}">Recherche</a>
+                  </li>
+                </ul>
+            {% endblock %}
+                
+            {% block breadcrumb %}
+                <ul class="breadcrumbs">
+                    <li><a href="#">Accueil</a></li>
+                </ul>
+            {% endblock %}
+            
+            {% block content %}
+            {% endblock %}
+        
+        </div>
+    </div>
+</body>
+</html>

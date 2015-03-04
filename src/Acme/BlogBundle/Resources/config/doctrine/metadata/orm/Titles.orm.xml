@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Titles" table="titles">
+    <id name="id" type="integer" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="recordCreation" type="string" column="record_creation" length="255" nullable="true"/>
+    <field name="standardNumber" type="string" column="standard_number" length="255" nullable="true"/>
+    <field name="sourceOfStandardNumber" type="integer" column="source_of_standard_number" nullable="true"/>
+    <field name="authorId" type="integer" column="author_id" nullable="true"/>
+    <field name="uniformTitle" type="string" column="uniform_title" length="255" nullable="false"/>
+    <field name="originalCreationDate" type="string" column="original_creation_date" length="255" nullable="true"/>
+    <field name="note" type="string" column="note" length="255" nullable="true"/>
+    <field name="language" type="string" column="language" length="255" nullable="true"/>
+    <field name="medium" type="string" column="medium" length="255" nullable="true"/>
+    <field name="number" type="string" column="number" length="255" nullable="true"/>
+    <field name="version" type="string" column="version" length="255" nullable="true"/>
+    <field name="subdivision" type="string" column="subdivision" length="255" nullable="true"/>
+    <field name="additionalTitleVariations" type="string" column="additional_title_variations" length="255" nullable="true"/>
+    <field name="associatedPlace" type="string" column="associated_place" length="255" nullable="true"/>
+    <field name="titleInCyrillic" type="string" column="title_in_cyrillic" length="255" nullable="true"/>
+    <many-to-one field="catalogingSource" target-entity="CatalogingSources">
+      <join-columns>
+        <join-column name="cataloging_source_id" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

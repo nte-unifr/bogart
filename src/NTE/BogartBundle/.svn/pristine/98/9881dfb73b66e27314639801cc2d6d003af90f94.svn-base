@@ -1,0 +1,46 @@
+CACHE MANIFEST
+# Manifest for BoGart App
+# Time: {{ "now"|date("m/d/Y h:i:s") }}
+
+CACHE:
+{{ asset('bundles/ntebogart/images') }}/favicon.ico
+{{ asset('bundles/ntebogart/images') }}/favicon.ico
+{{ asset('bundles/ntebogart/images') }}/bogart-icon-57.png
+{{ asset('bundles/ntebogart/images') }}/bogart-icon-72.png
+{{ asset('bundles/ntebogart/images') }}/bogart-icon-114.png
+{{ asset('bundles/ntebogart/images') }}/bogart-icon-144.png
+
+http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.css
+http://code.jquery.com/jquery-1.9.1.min.js
+http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js
+{{ asset('bundles/ntebogart/css') }}/photoswipe.css
+
+{{ asset('bundles/ntebogart/js') }}/klass.min.js
+{{ asset('bundles/ntebogart/js') }}/code.photoswipe-3.0.5.min.js
+{{ asset('bundles/ntebogart/js') }}/jquery.cookie.js
+
+{{ path('parcours', { '_locale': 'fr' }) }}
+{{ path('parcours', { '_locale': 'de' }) }}
+
+{% for elt in parcours %}
+{{ path('parcours_show', { '_locale': 'fr', 'id': elt.id}) }}
+
+{{ path('parcours_show', { '_locale': 'de', 'id': elt.id}) }}
+
+{% path elt.image, 'reference' %}
+
+{% for item in elt.parcoursposition %}
+
+{{ path('parcours_taxon', { '_locale': 'fr', 'numero': item.numero}) }}
+
+{{ path('parcours_taxon', { '_locale': 'de', 'numero': item.numero}) }}
+
+{% for fichier in item.taxon.fichiers %}
+
+{% path fichier.media, 'reference' %}
+{% endfor %}
+
+{% endfor %}
+
+{% endfor %}
+{# files #}

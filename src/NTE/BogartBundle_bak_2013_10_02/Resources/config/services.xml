@@ -1,0 +1,143 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <!--
+    <parameters>
+        <parameter key="nte_bogart.example.class">NTE\BogartBundle\Example</parameter>
+    </parameters>
+
+    <services>
+        <service id="nte_bogart.example" class="%nte_bogart.example.class%">
+            <argument type="service" id="service_id" />
+            <argument>plain_value</argument>
+            <argument>%parameter_name%</argument>
+        </service>
+    </services>
+    -->
+    <services>
+        <!-- other services -->
+        <service id="nte.bogart.admin.botaniqueAccession" class="NTE\BogartBundle\Admin\BotaniqueAccessionAdmin">
+            <tag name="sonata.admin" manager_type="orm" group="Jardin botanique" label="Accessions" label_translator_strategy="sonata.admin.label.strategy.native" />
+            <argument />
+            <argument>NTE\BogartBundle\Entity\BotaniqueAccession</argument>
+            <argument>SonataAdminBundle:CRUD</argument>
+            <argument type="service" id="service_container" />
+        </service>
+        <service id="nte.bogart.admin.botaniqueAdresse" class="NTE\BogartBundle\Admin\BotaniqueAdresseAdmin">
+            <tag name="sonata.admin" manager_type="orm" group="Jardin botanique" label="Adresses" label_translator_strategy="sonata.admin.label.strategy.native" />
+            <argument />
+            <argument>NTE\BogartBundle\Entity\BotaniqueAdresse</argument>
+            <argument>SonataAdminBundle:CRUD</argument>
+            <argument type="service" id="service_container" />
+        </service>
+        <service id="nte.bogart.admin.botaniqueBibliographie" class="NTE\BogartBundle\Admin\BotaniqueBibliographieAdmin">
+            <tag name="sonata.admin" manager_type="orm" group="Jardin botanique" label="Bibliographie" label_translator_strategy="sonata.admin.label.strategy.native" />
+            <argument />
+            <argument>NTE\BogartBundle\Entity\BotaniqueBiblio</argument>
+            <argument>SonataAdminBundle:CRUD</argument>
+            <argument type="service" id="service_container" />
+        </service>
+        <service id="nte.bogart.admin.botaniqueCroissance" class="NTE\BogartBundle\Admin\BotaniqueCroissanceAdmin">
+            <tag name="sonata.admin" manager_type="orm" group="Jardin botanique" label="Croissance" label_translator_strategy="sonata.admin.label.strategy.native" />
+            <argument />
+            <argument>NTE\BogartBundle\Entity\BotaniqueCroissance</argument>
+            <argument>SonataAdminBundle:CRUD</argument>
+            <argument type="service" id="service_container" />
+        </service>
+        <service id="nte.bogart.admin.botaniqueCollection" class="NTE\BogartBundle\Admin\BotaniqueCollectionAdmin">
+            <tag name="sonata.admin" manager_type="orm" group="Jardin botanique" label="Collection" label_translator_strategy="sonata.admin.label.strategy.native" />
+            <argument />
+            <argument>NTE\BogartBundle\Entity\BotaniqueCollection</argument>
+            <argument>SonataAdminBundle:CRUD</argument>
+            <argument type="service" id="service_container" />
+        </service>
+        <service id="nte.bogart.admin.botaniqueEndroit" class="NTE\BogartBundle\Admin\BotaniqueEndroitAdmin">
+            <tag name="sonata.admin" manager_type="orm" group="Jardin botanique" label="Endroit" label_translator_strategy="sonata.admin.label.strategy.native" />
+            <argument />
+            <argument>NTE\BogartBundle\Entity\BotaniqueEndroit</argument>
+            <argument>SonataAdminBundle:CRUD</argument>
+            <argument type="service" id="service_container" />
+        </service>
+        <service id="nte.bogart.admin.botaniqueFamille" class="NTE\BogartBundle\Admin\BotaniqueFamilleAdmin">
+            <tag name="sonata.admin" manager_type="orm" group="Jardin botanique" label="Famille" label_translator_strategy="sonata.admin.label.strategy.native" />
+            <argument />
+            <argument>NTE\BogartBundle\Entity\BotaniqueFamille</argument>
+            <argument>SonataAdminBundle:CRUD</argument>
+            <argument type="service" id="service_container" />
+        </service>
+        <service id="nte.bogart.admin.botaniqueFamilleSynonyme" class="NTE\BogartBundle\Admin\BotaniqueFamilleSynonymeAdmin">
+            <tag name="sonata.admin" manager_type="orm" group="Jardin botanique" label="Famille Synonyme" label_translator_strategy="sonata.admin.label.strategy.native" />
+            <argument />
+            <argument>NTE\BogartBundle\Entity\BotaniqueFamilleSynonyme</argument>
+            <argument>SonataAdminBundle:CRUD</argument>
+            <argument type="service" id="service_container" />
+        </service>
+        <service id="nte.bogart.admin.botaniqueGenre" class="NTE\BogartBundle\Admin\BotaniqueGenreAdmin">
+            <tag name="sonata.admin" manager_type="orm" group="Jardin botanique" label="Genre" label_translator_strategy="sonata.admin.label.strategy.native" />
+            <argument />
+            <argument>NTE\BogartBundle\Entity\BotaniqueGenre</argument>
+            <argument>SonataAdminBundle:CRUD</argument>
+            <argument type="service" id="service_container" />
+        </service>
+        <service id="nte.bogart.admin.botaniqueIpen" class="NTE\BogartBundle\Admin\BotaniqueIpenAdmin">
+            <tag name="sonata.admin" manager_type="orm" group="Jardin botanique" label="IPEN" label_translator_strategy="sonata.admin.label.strategy.native" />
+            <argument />
+            <argument>NTE\BogartBundle\Entity\BotaniqueIpen</argument>
+            <argument>SonataAdminBundle:CRUD</argument>
+            <argument type="service" id="service_container" />
+        </service>
+        <service id="nte.bogart.admin.botaniqueOrigine" class="NTE\BogartBundle\Admin\BotaniqueOrigineAdmin">
+            <tag name="sonata.admin" manager_type="orm" group="Jardin botanique" label="Origine" label_translator_strategy="sonata.admin.label.strategy.native" />
+            <argument />
+            <argument>NTE\BogartBundle\Entity\BotaniqueOrigine</argument>
+            <argument>SonataAdminBundle:CRUD</argument>
+            <argument type="service" id="service_container" />
+        </service>
+        <service id="nte.bogart.admin.botaniquePays" class="NTE\BogartBundle\Admin\BotaniquePaysAdmin">
+            <tag name="sonata.admin" manager_type="orm" group="Jardin botanique" label="Pays" label_translator_strategy="sonata.admin.label.strategy.native" />
+            <argument />
+            <argument>NTE\BogartBundle\Entity\BotaniquePays</argument>
+            <argument>SonataAdminBundle:CRUD</argument>
+            <argument type="service" id="service_container" />
+        </service>
+        <service id="nte.bogart.admin.botaniqueTaxon" class="NTE\BogartBundle\Admin\BotaniqueTaxonAdmin">
+            <tag name="sonata.admin" manager_type="orm" group="Jardin botanique" label="Taxon" label_translator_strategy="sonata.admin.label.strategy.native" />
+            <argument />
+            <argument>NTE\BogartBundle\Entity\BotaniqueTaxon</argument>
+            <argument>SonataAdminBundle:CRUD</argument>
+            <argument type="service" id="service_container" />
+        </service>
+        <service id="nte.bogart.admin.botaniqueGraineStatistique" class="NTE\BogartBundle\Admin\BotaniqueGraineStatistiqueAdmin">
+            <tag name="sonata.admin" manager_type="orm" group="Jardin botanique" label="Graine Statistique" label_translator_strategy="sonata.admin.label.strategy.native" />
+            <argument />
+            <argument>NTE\BogartBundle\Entity\BotaniqueGraineStatistique</argument>
+            <argument>SonataAdminBundle:CRUD</argument>
+            <argument type="service" id="service_container" />
+        </service>
+        
+        <service id="nte.bogart.admin.botaniqueParcours" class="NTE\BogartBundle\Admin\BotaniqueParcoursAdmin">
+            <tag name="sonata.admin" manager_type="orm" group="Parcours BoGart" label="Parcours" label_translator_strategy="sonata.admin.label.strategy.native" />
+            <argument />
+            <argument>NTE\BogartBundle\Entity\BotaniqueParcours</argument>
+            <argument>SonataAdminBundle:CRUD</argument>
+            <argument type="service" id="service_container" />
+        </service>
+        <service id="nte.bogart.admin.botaniqueParcoursPosition" class="NTE\BogartBundle\Admin\BotaniqueParcoursPositionAdmin">
+            <tag name="sonata.admin" manager_type="orm" group="Parcours BoGart" label="Parcours Position" label_translator_strategy="sonata.admin.label.strategy.native" />
+            <argument />
+            <argument>NTE\BogartBundle\Entity\BotaniqueParcoursPosition</argument>
+            <argument>SonataAdminBundle:CRUD</argument>
+            <argument type="service" id="service_container" />
+        </service>
+        <service id="nte.bogart.admin.botaniqueFichierTaxon" class="NTE\BogartBundle\Admin\BotaniqueFichierTaxonAdmin">
+            <tag name="sonata.admin" manager_type="orm" group="Parcours BoGart" label="Fichier Taxon" label_translator_strategy="sonata.admin.label.strategy.native" />
+            <argument />
+            <argument>NTE\BogartBundle\Entity\BotaniqueFichierTaxon</argument>
+            <argument>SonataAdminBundle:CRUD</argument>
+            <argument type="service" id="service_container" />
+        </service>
+    </services>
+</container>

@@ -1,0 +1,45 @@
+{% extends 'NTEBogartBundle::parcours.html.twig' %}
+
+{% block content %}
+    <script type="text/javascript">
+
+	    (function(window, $, PhotoSwipe){
+		
+		    $(document).ready(function(){
+			
+			    var options = {loop: false,
+						       captionAndToolbarAutoHideDelay: 0,};
+			    $("#Gallery a").photoSwipe(options);
+			    $("#Gallery1 a").photoSwipe(options);
+		
+		    });
+		
+		
+	    }(window, window.jQuery, window.Code.PhotoSwipe));
+	
+    </script>
+
+    <div data-role="page" id="details">
+
+        <div data-theme="b" data-role="header" data-position="fixed">
+            <h3>{{ 'Inconnu' | trans }}</h3>
+		    <a href="{{ path('parcours') }}{% if(app.request.attributes.get('_locale') == 'de') %}/de/{% else %}/fr/{% endif %}" data-icon="home" data-iconpos="notext" data-direction="reverse" rel="external">Home</a>
+        </div>
+        <div data-role="content" class="gallery-page">
+	        <div class="descr">
+                <h2>{{ 'Inconnu' | trans }}</h2>
+                <h3>{{ 'Introduisez le codage de la plante souhaitée' | trans }}:</h3>
+                <form action="{{ path('parcours_taxon2') }}" method="get" data-ajax="false">
+                    <div data-role="fieldcontain">
+	                    <input type="text" name="numero" id="numero" value="" placeholder="{{ 'Entrez le code d\'une plante' | trans }}" />
+                    </div>
+                </form>
+                <br />
+                <h3>{{ 'ou' | trans }}</h3>
+                <br />
+                <a rel="external" href="{{ path('parcours') }}{% if(app.request.attributes.get('_locale') == 'de') %}/de/{% else %}/fr/{% endif %}" data-role="button">Home</a>
+            </div>
+        </div>
+
+    </div>
+{% endblock %}

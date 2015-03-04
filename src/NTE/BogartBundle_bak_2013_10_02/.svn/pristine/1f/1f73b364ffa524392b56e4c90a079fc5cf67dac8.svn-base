@@ -1,0 +1,80 @@
+{% extends 'NTEBogartBundle::layout.html.twig' %}
+
+{% block title %}<title>Taxon - BoGart</title>{% endblock %}
+
+{% block breadcrumb %}
+    <ul class="breadcrumbs">
+        <li><a href="{{ path('bogart') }}">Accueil</a></li>
+        <li><a href="{{ path('taxon') }}">Taxons</a></li>
+        <li class="current"><span>{{ entity.nom }}</span></li>
+    </ul>
+{% endblock %}
+
+{% block content %}
+<h1>Taxon: {{ entity.nom }}</h1>
+
+<table class="record_properties">
+    <tbody>
+        <tr>
+            <th width="200">Nom</th>
+            <td>{{ entity.nom }}</td>
+        </tr>
+        <tr>
+            <th>Sexe</th>
+            <td>{{ entity.sexe }}</td>
+        </tr>
+        <tr>
+            <th>Nom fr</th>
+            <td>{{ entity.nomFr }}</td>
+        </tr>
+        <tr>
+            <th>Nom de</th>
+            <td>{{ entity.nomDe }}</td>
+        </tr>
+        <tr>
+            <th>Synonyme</th>
+            <td>{{ entity.synonyme }}</td>
+        </tr>
+        <tr>
+            <th>Floraison</th>
+            <td>{{ entity.floraison }}</td>
+        </tr>
+        <tr>
+            <th>Origine fr</th>
+            <td>{{ entity.origineFr }}</td>
+        </tr>
+        <tr>
+            <th>Origine de</th>
+            <td>{{ entity.origineDe }}</td>
+        </tr>
+        <tr>
+            <th>Indigene</th>
+            <td>{{ entity.indigene }}</td>
+        </tr>
+        <tr>
+            <th>Menace</th>
+            <td>{{ entity.menace }}</td>
+        </tr>
+        <tr>
+            <th>Cites</th>
+            <td>{{ entity.cites }}</td>
+        </tr>
+        <tr>
+            <th>Secteur(s)</th>
+            <td>{% for collection in  entity.collections %}{{ collection.secteur }}<br /> {% endfor %}</td>
+        </tr>
+        <tr>
+            <th>Photo(s)</th>
+            <td>{% for photo in entity.fichiers %}{% media photo.media, 'small' %}<br /> {% endfor %}</td>
+        </tr>
+    </tbody>
+</table>
+
+<ul class="record_actions">
+    <li>
+        <a href="{{ path('taxon') }}">
+            Back to the list
+        </a>
+    </li>
+</ul>
+{% endblock %}

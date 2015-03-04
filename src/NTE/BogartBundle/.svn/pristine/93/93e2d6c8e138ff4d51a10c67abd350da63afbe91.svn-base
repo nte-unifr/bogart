@@ -1,0 +1,198 @@
+{% extends 'NTEBogartBundle::parcours.html.twig' %}
+
+{% block content %}
+    <script type="text/javascript">
+
+	    (function(window, $, PhotoSwipe){
+		
+		    $(document).ready(function(){
+			
+			    var options = {loop: false,
+						       captionAndToolbarAutoHideDelay: 0,};
+			    $("#Gallery a").photoSwipe(options);
+			    $("#Gallery1 a").photoSwipe(options);
+		
+		    });
+		
+		
+	    }(window, window.jQuery, window.Code.PhotoSwipe));
+	
+    </script>
+
+    <div data-role="page" id="details">
+
+
+        <div data-theme="b" data-role="header" data-position="fixed">
+            <h3>{{ parcoursposition.taxon.nom }}</h3>
+		    <a href="{{ path('parcours') }}{% if(app.request.attributes.get('_locale') == 'de') %}/de/{% else %}/fr/{% endif %}" data-icon="home" data-iconpos="notext" data-direction="reverse" rel="external">Home</a>
+        </div>
+        <div data-role="content" class="gallery-page">
+	        <a href="{{ path('parcours_show', { 'id': parcoursposition.parcours.id }) }}" rel="external" data-role="button" data-mini="true" data-inline="true" data-icon="grid" data-theme="c"><span style="background-color: #{{ parcoursposition.parcours.couleur }};">&nbsp; &nbsp; &nbsp;&nbsp;</span> &nbsp; {{ parcoursposition.parcours.numero }}. {% if(app.request.attributes.get('_locale') == 'de') %}{{ parcoursposition.parcours.nomDe }}{% else %}{{ parcoursposition.parcours.nomFr }}{% endif %}</a><hr />
+	        
+	        <ul id="Gallery1" class="gallery">
+		        <div class="descr">
+                    <h2>{{ parcoursposition.numero }} - {% if(app.request.attributes.get('_locale') == 'de') %}{{ parcoursposition.taxon.nomDE }}{% else %}{{ parcoursposition.taxon.nomFr }}{% endif %}</h2>
+                    {% for fichier in parcoursposition.taxon.fichiers %}
+                        <a href="{% path fichier.media, 'reference' %}" rel="external" {% if(fichier.id != parcoursposition.taxon.fichiers.first.id) %} style="display: none;"{% endif %}><img src="{% path fichier.media, 'big' %}"  alt="{{ parcoursposition.taxon.nom }}" width="25%" align="right" border="1" /></a>
+                    {% endfor %}
+                    <h3>{{ 'Nom scientifique' | trans }}</h3>
+                    <p>{{ parcoursposition.taxon.nom }}</p>
+                    <h3>{{ 'Famille' | trans }}</h3>
+                    <p>{{ parcoursposition.taxon.famille1 }}</p>
+                    <h3>{{ 'Nom français' | trans }}</h3>
+                    <p>{% if(app.request.attributes.get('_locale') == 'de') %}{{ parcoursposition.taxon.nomDE }}{% else %}{{ parcoursposition.taxon.nomFr }}{% endif %}</p>
+                    <h3>{{ 'Origine' | trans }}</h3>
+                    <p>{% if(app.request.attributes.get('_locale') == 'de') %}{{ parcoursposition.taxon.origineDe }}{% else %}{{ parcoursposition.taxon.origineFr }}{% endif %}</p>
+                    <h3>{{ 'Aspect/Habitat' | trans }}</h3>
+                    <p>{% if(app.request.attributes.get('_locale') == 'de') %}{{ parcoursposition.taxon.habitatDE }}{% else %}{{ parcoursposition.taxon.habitatFr }}{% endif %}</p>
+                    <h3>{{ 'Remarques' | trans }}</h3>
+                    <p>{% if(app.request.attributes.get('_locale') == 'de') %}{{ parcoursposition.taxon.remarqueDe }}{% else %}{{ parcoursposition.taxon.remarqueFr }}{% endif %}</p>
+                </div>
+            </ul>
+		
+	        <ul id="Gallery" class="gallery">
+            {% for fichier in parcoursposition.taxon.fichiers %}
+                <li><a href="{% path fichier.media, 'reference' %}" rel="external"><img src="{% path fichier.media, 'big' %}" alt="{{ parcoursposition.taxon.nom }}" width="25%" align="right" border="1" /></a></li>
+            {% endfor %}
+            </ul>
+        </div>
+	
+	
+        <div data-theme="b" data-role="footer" data-position="fixed">	
+	        <div data-role="navbar" data-mini="true">
+		        <ul>
+			        <li>{% if (prev=='') %}
+			            <a href="#debut" data-iconpos="notext" data-icon="star" data-transition="slide" data-direction="reverse"></a>
+			            {% else %}
+			            <a href="{{ path('parcours_taxon', { 'numero': prev.numero }) }}" rel="external" data-iconpos="notext" data-icon="arrow-l" data-transition="slide"></a>
+			            {% endif %}
+			        </li>
+			        <li>{% if (next=='') %}
+			            <a href="#fin" data-iconpos="notext" data-icon="star" data-transition="slide"></a>
+			            {% else %}
+			                {% if parcoursposition.direction != '' %}
+			             <a href="#direction" data-iconpos="notext" data-icon="arrow-r" data-transition="slide"></a>
+			                {% else %}
+			            <a href="{{ path('parcours_taxon', { 'numero': next.numero }) }}" rel="external" data-iconpos="notext" data-icon="arrow-r" data-transition="slide"></a>
+			                {% endif %}
+			            {% endif %}
+			        </li>
+		        </ul>
+            </div>
+        </div></div>
+
+
+    <!-- PAGE DIRECTION -->
+    <div data-role="page" id="direction">
+
+
+        <div data-theme="b" data-role="header" data-position="fixed">
+            <h3>{{ parcoursposition.taxon.nom }}</h3>
+		    <a href="{{ path('parcours') }}{% if(app.request.attributes.get('_locale') == 'de') %}/de/{% else %}/fr/{% endif %}" data-icon="home" data-iconpos="notext" data-direction="reverse" rel="external">Home</a>
+        </div>
+        <div data-role="content">
+	        <a href="{{ path('parcours_show', { 'id': parcoursposition.parcours.id }) }}" rel="external" data-role="button" data-mini="true" data-inline="true" data-icon="grid" data-theme="c"><font color="#{{ parcoursposition.parcours.couleur }}">&block;&block;</font> &nbsp; {{ parcoursposition.parcours.numero }}. {% if(app.request.attributes.get('_locale') == 'de') %}{{ parcoursposition.parcours.nomDe }}{% else %}{{ parcoursposition.parcours.nomFr }}{% endif %}</a><hr />
+            <center>
+            <h1 class="ui-li-heading">{{ 'Prochaine plante' | trans }}<br />{% if next %}{% if(app.request.attributes.get('_locale') == 'de') %}{{ next.taxon.nomDE }}{% else %}{{ next.taxon.nomFr }}{% endif %}{% else %}{% if(app.request.attributes.get('_locale') == 'de') %}{{ start.taxon.nomDE }}{% else %}{{ start.taxon.nomFr }}{% endif %}{% endif %}</h1>
+	        <ul id="Gallery" class="gallery">
+	        {% if next %}
+                <a href="{% path next.taxon.fichiers.first.media, 'reference' %}" rel="external"><img src="{% path next.taxon.fichiers.first.media, 'big' %}"  alt="{{ next.taxon.nom }}" width="25%" align="right" border="1" /></a>
+            {% else %}
+                <a href="{% path start.taxon.fichiers.first.media, 'reference' %}" rel="external"><img src="{% path start.taxon.fichiers.first.media, 'big' %}"  alt="{{ start.taxon.nom }}" width="25%" align="right" border="1" /></a>
+            {% endif %}
+            </ul>
+            <h1><font size="15em;" weight="bold">{{ parcoursposition.direction }}</font><br />
+            {{ parcoursposition.distance }} m</h1>
+            <p>{% if(app.request.attributes.get('_locale') == 'de') %}{{ parcoursposition.commentaireDe }}{% else %}{{ parcoursposition.commentaireFr }}{% endif %}</p>
+            {% if next != '' %}
+            <a href="{{ path('parcours_taxon', { 'numero': next.numero }) }}" rel="external" data-transition="slide" data-role="button" data-theme="b">Go!</a>
+            {% else %}
+            <a href="{{ path('parcours_taxon', { 'numero': start.numero }) }}" rel="external" data-transition="slide" data-role="button" data-theme="b">Go!</a>
+            {% endif %}
+            </center>
+        </div>
+
+        <div data-theme="b" data-role="footer" data-position="fixed">	
+	        <div data-role="navbar" data-mini="true">
+		        <ul>
+			        <li>
+			            <a href="#details" data-iconpos="notext" data-icon="arrow-l" data-transition="slide" data-direction="reverse"></a>
+			        </li>
+			        <li>{% if (next=='') %}
+			            <a href="{{ path('parcours_taxon', { 'numero': start.numero }) }}" rel="external" data-iconpos="notext" data-icon="arrow-r" data-transition="slide"></a>
+			            {% else %}
+			            <a href="{{ path('parcours_taxon', { 'numero': next.numero }) }}" rel="external" data-iconpos="notext" data-icon="arrow-r" data-transition="slide"></a>
+			            {% endif %}
+			        </li>
+		        </ul>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- PAGE DEBUT -->
+    <div data-role="page" id="debut">
+
+
+        <div data-theme="b" data-role="header" data-position="fixed">
+            <h3>{{ parcoursposition.taxon.nom }}</h3>
+		    <a href="{{ path('parcours') }}{% if(app.request.attributes.get('_locale') == 'de') %}/de/{% else %}/fr/{% endif %}" data-icon="home" data-iconpos="notext" data-direction="reverse" rel="external">Home</a>
+        </div>
+        <div data-role="content">
+	        <a href="{{ path('parcours_show', { 'id': parcoursposition.parcours.id }) }}" rel="external" data-role="button" data-mini="true" data-inline="true" data-icon="grid" data-theme="c"><font color="#{{ parcoursposition.parcours.couleur }}">&block;&block;</font> &nbsp; {{ parcoursposition.parcours.numero }}. {% if(app.request.attributes.get('_locale') == 'de') %}{{ parcoursposition.parcours.nomDe }}{% else %}{{ parcoursposition.parcours.nomFr }}{% endif %}</a><hr />
+            <h1 class="ui-li-heading">{{ "Début du parcours" | trans }}</h1>
+            <a href="#details" data-role="button" data-theme="c">{{ "Commencer le parcours" | trans }}</a>
+            <h3>{{ "ou" | trans }}</h3>
+            <a href="{{ path('parcours') }}{% if(app.request.attributes.get('_locale') == 'de') %}/de/{% else %}/fr/{% endif %}" rel="external" data-role="button" data-theme="c">{{ "Retourner à l'accueil" | trans }}</a>
+        </div>
+
+        <div data-theme="b" data-role="footer" data-position="fixed">	
+	        <div data-role="navbar" data-mini="true">
+		        <ul>
+			        <li>
+			            <a href="{{ path('parcours') }}{% if(app.request.attributes.get('_locale') == 'de') %}/de/{% else %}/fr/{% endif %}" rel="external" data-role="button"data-icon="home"></a>
+			        </li>
+			        <li>
+			            <a href="#details" data-iconpos="notext" data-icon="arrow-r" data-transition="slide"></a>
+			        </li>
+		        </ul>
+            </div>
+        </div>
+	
+    </div>
+
+
+    <!-- PAGE FIN -->
+    <div data-role="page" id="fin">
+
+
+        <div data-theme="b" data-role="header" data-position="fixed">
+            <h3>{{ parcoursposition.taxon.nom }}</h3>
+		    <a href="{{ path('parcours') }}{% if(app.request.attributes.get('_locale') == 'de') %}/de/{% else %}/fr/{% endif %}" data-icon="home" data-iconpos="notext" data-direction="reverse" rel="external">Home</a>
+        </div>
+        <div data-role="content">
+	        <a href="{{ path('parcours_show', { 'id': parcoursposition.parcours.id }) }}" rel="external" data-role="button" data-mini="true" data-inline="true" data-icon="grid" data-theme="c"><font color="#{{ parcoursposition.parcours.couleur }}">&block;&block;</font> &nbsp; {{ parcoursposition.parcours.numero }}. {% if(app.request.attributes.get('_locale') == 'de') %}{{ parcoursposition.parcours.nomDe }}{% else %}{{ parcoursposition.parcours.nomFr }}{% endif %}</a><hr />
+            <h1 class="ui-li-heading">{{ 'Fin du parcours' | trans }}</h1>
+            <a href="{% if parcoursposition.direction != '' %}#direction{% else %}{{ path('parcours_taxon', { 'numero': start.numero }) }}{% endif %}" rel="external" data-role="button" data-transition="slide" data-theme="c">{{ "Recommencer depuis le début du parcours" | trans }}</a>
+            <h1 class="ui-li-heading">{{ 'ou' | trans }}</h1>
+            <a href="{{ path('parcours') }}{% if(app.request.attributes.get('_locale') == 'de') %}/de/{% else %}/fr/{% endif %}" rel="external" data-role="button" data-theme="c">{{ "Retourner à l'accueil" | trans }}</a>
+        </div>
+
+        <div data-theme="b" data-role="footer" data-position="fixed">	
+	        <div data-role="navbar" data-mini="true">
+		        <ul>
+			        <li>
+			            <a href="#details" data-iconpos="notext" data-icon="arrow-l" data-transition="slide" data-direction="reverse"></a>
+			        </li>
+			        <li>
+			        {% if parcoursposition.direction != '' %}
+			            <a href="#direction" data-iconpos="notext" data-icon="arrow-r" data-transition="slide"></a>
+			        {% else %}
+			            <a href="{{ path('parcours') }}{% if(app.request.attributes.get('_locale') == 'de') %}/de/{% else %}/fr/{% endif %}" rel="external" data-iconpos="notext" data-icon="home" data-transition="slide"></a>
+			        {% endif %}
+			        </li>
+		        </ul>
+            </div>
+        </div>
+    </div>
+{% endblock %}

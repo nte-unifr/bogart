@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="BotaniquePays" table="botanique_pays">
+    <id name="id" type="integer" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="abreviation" type="string" column="abreviation" length="255" nullable="true"/>
+    <field name="pays" type="string" column="pays" length="255" nullable="true"/>
+    <field name="filemakerNum" type="integer" column="filemaker_num" nullable="true"/>
+  </entity>
+</doctrine-mapping>

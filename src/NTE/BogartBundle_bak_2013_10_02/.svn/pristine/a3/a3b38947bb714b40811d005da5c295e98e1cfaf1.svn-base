@@ -1,0 +1,50 @@
+{% extends 'NTEBogartBundle::layout.html.twig' %}
+
+{% block title %}<title>Taxon - BoGart</title>{% endblock %}
+
+{% block breadcrumb %}
+    <ul class="breadcrumbs">
+        <li><a href="{{ path('taxon') }}">Accueil</a></li>
+        <li class="current"><span>Taxons</span></li>
+    </ul>
+{% endblock %}
+
+{% block content %}
+<h1>Liste des taxons</h1>
+
+<table class="records_list">
+    <thead>
+        <tr>
+            <th>Nom</th>
+            <th>Genre inter</th>
+            <th>Espece</th>
+            <th>Espece auteur</th>
+            <th>Espece inter</th>
+            <th>Ssp</th>
+            <th>Ssp nom</th>
+            <th>Ssp auteur</th>
+            <th>Cultivar</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for entity in entities %}
+        <tr>
+            <td><a href="{{ path('taxon_show', { 'id': entity.id }) }}">{{ entity.nom }}</a></td>
+            <td>{{ entity.genreInter }}</td>
+            <td>{{ entity.espece }}</td>
+            <td>{{ entity.especeAuteur }}</td>
+            <td>{{ entity.especeInter }}</td>
+            <td>{{ entity.ssp }}</td>
+            <td>{{ entity.sspNom }}</td>
+            <td>{{ entity.sspAuteur }}</td>
+            <td>{{ entity.cultivar }}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+
+<hr />
+
+<a href="{{ path('taxon_page', { 'page': page - 1 }) }}" class="button"><<<<<<</a>  &nbsp; &nbsp; &nbsp; &nbsp; <a href="{{ path('taxon_page', { 'page': page + 1 }) }}" class="button">>>>>>>></a>
+{% endblock %}

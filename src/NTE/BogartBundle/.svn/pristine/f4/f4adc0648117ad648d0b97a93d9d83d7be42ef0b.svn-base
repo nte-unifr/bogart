@@ -1,0 +1,27 @@
+{% extends 'NTEBogartBundle::layout.html.twig' %}
+
+{% block content %}<h1>{{ 'Recherche'|trans }}</h1>
+
+<form action="{{ path('search') }}" method="post" {{ form_enctype(form) }}>
+
+    <div class="row">
+        <div class="six columns">{{ form_row(form.search, {'value': search}) }}</div>
+        <div class="six columns">{{ form_row(form.secteur, {'value': secteur}) }}</div>
+    </div>
+
+    <div class="row">
+        <div class="six columns">{{ form_row(form.origine, {'value': origine}) }}</div>
+        <div class="six columns">{{ form_row(form.floraison, {'value': floraison}) }}</div>
+    </div>
+
+    <div class="row">
+        <div class="six columns">{{ form_row(form.categories, {'value': categories}) }}</div>
+    </div>
+
+    <br />
+
+    {{ form_widget(form._token) }}
+    <input type="submit" />
+</form>
+
+{% endblock %}

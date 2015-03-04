@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Bibliographies" table="bibliographies">
+    <id name="id" type="integer" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="created" type="datetime" column="created" nullable="true"/>
+    <field name="modified" type="datetime" column="modified" nullable="true"/>
+    <field name="internalNotes" type="text" column="internal_notes" nullable="true"/>
+    <field name="019$$5" type="string" column="019$$5" length="255" nullable="true"/>
+    <field name="universalIdentificationNo" type="string" column="universal_identification_no" length="255" nullable="true"/>
+    <field name="itemNumber" type="string" column="item_number" length="255" nullable="true"/>
+    <field name="028$$b" type="string" column="028$$b" length="255" nullable="true"/>
+    <field name="libraryOfCongress" type="string" column="library_of_congress" length="255" nullable="true"/>
+    <field name="subjectKeyword" type="integer" column="subject_keyword" nullable="true"/>
+    <field name="decimalClassificationNb" type="string" column="decimal_classification_nb" length="255" nullable="true"/>
+    <field name="localClassificationNumber" type="string" column="local_classification_number" length="255" nullable="true"/>
+    <field name="docno" type="string" column="docNo" length="255" nullable="true"/>
+    <field name="typeOfClassification" type="string" column="type_of_classification" length="255" nullable="true"/>
+    <field name="inventoryNumber" type="string" column="inventory_number" length="255" nullable="true"/>
+    <field name="dates" type="string" column="dates" length="255" nullable="true"/>
+    <field name="keyTitle" type="string" column="key_title" length="255" nullable="true"/>
+    <field name="222$$b" type="string" column="222$$b" length="255" nullable="true"/>
+    <field name="title2" type="string" column="title2" length="255" nullable="true"/>
+    <field name="remarks" type="text" column="remarks" nullable="true"/>
+    <field name="number" type="string" column="number" length="255" nullable="true"/>
+    <field name="version" type="string" column="version" length="255" nullable="true"/>
+    <field name="titleStatement" type="string" column="title_statement" length="255" nullable="true"/>
+    <field name="subtitle" type="string" column="subtitle" length="255" nullable="true"/>
+    <field name="author" type="string" column="author_" length="255" nullable="true"/>
+    <field name="otherTitle" type="string" column="other_title" length="255" nullable="true"/>
+    <field name="otherSubtitle" type="integer" column="other_subtitle" nullable="true"/>
+    <field name="otherVersionOfAuthorName" type="string" column="other_version_of_author_name" length="255" nullable="true"/>
+    <field name="editionStatement" type="integer" column="edition_statement" nullable="true"/>
+    <field name="publicationInfo" type="string" column="publication_info" length="255" nullable="true"/>
+    <field name="city" type="string" column="city" length="255" nullable="true"/>
+    <field name="publisher" type="string" column="publisher" length="255" nullable="true"/>
+    <field name="year" type="string" column="year" length="255" nullable="true"/>
+    <field name="extent" type="string" column="extent" length="255" nullable="true"/>
+    <field name="physicalExtent" type="string" column="physical_extent" length="255" nullable="true"/>
+    <field name="features" type="string" column="features" length="255" nullable="true"/>
+    <field name="format" type="string" column="format" length="255" nullable="true"/>
+    <field name="enclosedItems" type="string" column="enclosed_items" length="255" nullable="true"/>
+    <field name="datesOfPeriodicalPublication" type="string" column="dates_of_periodical_publication" length="255" nullable="true"/>
+    <field name="datesVolumeNumbersIssueNumbers" type="string" column="dates_volume_numbers_issue_numbers" length="255" nullable="true"/>
+    <field name="infoSource" type="string" column="info_source" length="255" nullable="true"/>
+    <field name="seriesTitleAndInformation" type="string" column="series_title_and_information" length="255" nullable="true"/>
+    <field name="vol" type="string" column="vol" length="255" nullable="true"/>
+    <field name="no" type="string" column="no" length="255" nullable="true"/>
+    <field name="generalNote" type="string" column="general_note" length="255" nullable="true"/>
+    <field name="tableOfContentsNote" type="text" column="table_of_contents_note" nullable="true"/>
+    <field name="505$$t" type="string" column="505$$t" length="255" nullable="true"/>
+    <field name="directorPerformerInterpreterNote" type="string" column="director_performer_interpreter_note" length="255" nullable="true"/>
+    <field name="subjectKeywordControlledVocabulary" type="integer" column="subject_keyword-controlled_vocabulary" nullable="true"/>
+    <field name="indexTerm" type="string" column="index_term" length="255" nullable="true"/>
+    <field name="addedEntry" type="string" column="added_entry" length="255" nullable="true"/>
+    <field name="addedEntry2" type="string" column="added_entry2" length="255" nullable="true"/>
+    <field name="previousTitle" type="string" column="previous_title" length="255" nullable="true"/>
+    <field name="780$$t" type="string" column="780$$t" length="255" nullable="true"/>
+    <field name="laterTitles" type="string" column="later_titles" length="255" nullable="true"/>
+    <field name="785$$t" type="string" column="785$$t" length="255" nullable="true"/>
+    <many-to-one field="country" target-entity="Countries">
+      <join-columns>
+        <join-column name="country_id" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="nonBookMaterialType" target-entity="NonBookMaterialTypes">
+      <join-columns>
+        <join-column name="non_book_material_type_id" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="library" target-entity="Libraries">
+      <join-columns>
+        <join-column name="library_id" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="title" target-entity="Titles">
+      <join-columns>
+        <join-column name="title_id" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="specificMediaType" target-entity="SpecificMediaTypes">
+      <join-columns>
+        <join-column name="specific_media_Type_id" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="author2" target-entity="Authors">
+      <join-columns>
+        <join-column name="author_id" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="mediaTypeCode" target-entity="MediaTypeCodes">
+      <join-columns>
+        <join-column name="media_type_code_id" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

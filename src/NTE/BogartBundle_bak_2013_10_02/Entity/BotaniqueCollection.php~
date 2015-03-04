@@ -1,0 +1,1146 @@
+<?php
+
+namespace NTE\BogartBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * BotaniqueCollection
+ *
+ * @ORM\Table(name="botanique_collection")
+ * @ORM\Entity(repositoryClass="BotaniqueCollectionRepository")
+ */
+class BotaniqueCollection
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="filemaker_num", type="integer", nullable=true)
+     */
+    private $filemakerNum;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="vieux_nom", type="string", length=255, nullable=true)
+     */
+    private $vieuxNom;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="annee", type="string", nullable=true)
+     */
+    private $annee;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="numero", type="string", nullable=true)
+     */
+    private $numero;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="vieux_provenance", type="string", length=255, nullable=true)
+     */
+    private $vieuxProvenance;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="roseraie", type="string", length=255, nullable=true)
+     */
+    private $roseraie;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="id_plante_aqua", type="string", length=255, nullable=true)
+     */
+    private $idPlanteAqua;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="medicinal", type="string", length=255, nullable=true)
+     */
+    private $medicinal;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="geographyte_region", type="string", length=255, nullable=true)
+     */
+    private $geographyteRegion;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="geographyte_id", type="string", length=255, nullable=true)
+     */
+    private $geographyteId;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="inventaire", type="string", length=255, nullable=true)
+     */
+    private $inventaire;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="etiquette_controle", type="string", length=255, nullable=true)
+     */
+    private $etiquetteControle;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="etiquette_type", type="string", length=255, nullable=true)
+     */
+    private $etiquetteType;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="observations", type="string", length=255, nullable=true)
+     */
+    private $observations;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="intervention", type="string", length=255, nullable=true)
+     */
+    private $intervention;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="graine_culture", type="string", length=255, nullable=true)
+     */
+    private $graineCulture;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="graine_nature", type="string", length=255, nullable=true)
+     */
+    private $graineNature;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="graine_commerce", type="string", length=255, nullable=true)
+     */
+    private $graineCommerce;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="commande_graine", type="string", length=255, nullable=true)
+     */
+    private $commandeGraine;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="etiquette_sachet", type="string", length=255, nullable=true)
+     */
+    private $etiquetteSachet;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="recolte_nature1", type="string", length=255, nullable=true)
+     */
+    private $recolteNature1;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="recolte_nature2", type="string", length=255, nullable=true)
+     */
+    private $recolteNature2;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="recolte_nature3", type="string", length=255, nullable=true)
+     */
+    private $recolteNature3;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="recolte_jardin1", type="string", length=255, nullable=true)
+     */
+    private $recolteJardin1;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="recolte_jardin2", type="string", length=255, nullable=true)
+     */
+    private $recolteJardin2;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="controle", type="string", length=255, nullable=true)
+     */
+    private $controle;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="index_seminum", type="string", length=255, nullable=true)
+     */
+    private $indexSeminum;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="index_seminum_num", type="string", length=255, nullable=true)
+     */
+    private $indexSeminumNum;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="is_provenance", type="string", length=255, nullable=true)
+     */
+    private $isProvenance;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="is_recolte", type="string", length=255, nullable=true)
+     */
+    private $isRecolte;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="num_provenance", type="string", length=255, nullable=true)
+     */
+    private $numProvenance;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="plantation", type="string", nullable=true)
+     */
+    private $plantation;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="fournisseur", type="string", nullable=true)
+     */
+    private $fournisseur;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="provenance", type="string", nullable=true)
+     */
+    private $provenance;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="ipen", type="string", nullable=true)
+     */
+    private $ipen;
+
+    /**
+     * @var \BotaniqueTaxon
+     *
+     * @ORM\ManyToOne(targetEntity="BotaniqueTaxon")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_taxon", referencedColumnName="id")
+     * })
+     */
+    private $idTaxon;
+
+    /**
+     * @var \BotaniqueEndroit
+     *
+     * @ORM\ManyToOne(targetEntity="BotaniqueEndroit")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="secteur", referencedColumnName="id")
+     * })
+     */
+    private $secteur;
+
+
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set filemakerNum
+     *
+     * @param integer $filemakerNum
+     * @return BotaniqueCollection
+     */
+    public function setFilemakerNum($filemakerNum)
+    {
+        $this->filemakerNum = $filemakerNum;
+    
+        return $this;
+    }
+
+    /**
+     * Get filemakerNum
+     *
+     * @return integer 
+     */
+    public function getFilemakerNum()
+    {
+        return $this->filemakerNum;
+    }
+
+    /**
+     * Set vieuxNom
+     *
+     * @param string $vieuxNom
+     * @return BotaniqueCollection
+     */
+    public function setVieuxNom($vieuxNom)
+    {
+        $this->vieuxNom = $vieuxNom;
+    
+        return $this;
+    }
+
+    /**
+     * Get vieuxNom
+     *
+     * @return string 
+     */
+    public function getVieuxNom()
+    {
+        return $this->vieuxNom;
+    }
+
+    /**
+     * Set annee
+     *
+     * @param integer $annee
+     * @return BotaniqueCollection
+     */
+    public function setAnnee($annee)
+    {
+        $this->annee = $annee;
+    
+        return $this;
+    }
+
+    /**
+     * Get annee
+     *
+     * @return integer 
+     */
+    public function getAnnee()
+    {
+        return $this->annee;
+    }
+
+    /**
+     * Set numero
+     *
+     * @param integer $numero
+     * @return BotaniqueCollection
+     */
+    public function setNumero($numero)
+    {
+        $this->numero = $numero;
+    
+        return $this;
+    }
+
+    /**
+     * Get numero
+     *
+     * @return integer 
+     */
+    public function getNumero()
+    {
+        return $this->numero;
+    }
+
+    /**
+     * Set vieuxProvenance
+     *
+     * @param string $vieuxProvenance
+     * @return BotaniqueCollection
+     */
+    public function setVieuxProvenance($vieuxProvenance)
+    {
+        $this->vieuxProvenance = $vieuxProvenance;
+    
+        return $this;
+    }
+
+    /**
+     * Get vieuxProvenance
+     *
+     * @return string 
+     */
+    public function getVieuxProvenance()
+    {
+        return $this->vieuxProvenance;
+    }
+
+    /**
+     * Set roseraie
+     *
+     * @param string $roseraie
+     * @return BotaniqueCollection
+     */
+    public function setRoseraie($roseraie)
+    {
+        $this->roseraie = $roseraie;
+    
+        return $this;
+    }
+
+    /**
+     * Get roseraie
+     *
+     * @return string 
+     */
+    public function getRoseraie()
+    {
+        return $this->roseraie;
+    }
+
+    /**
+     * Set idPlanteAqua
+     *
+     * @param string $idPlanteAqua
+     * @return BotaniqueCollection
+     */
+    public function setIdPlanteAqua($idPlanteAqua)
+    {
+        $this->idPlanteAqua = $idPlanteAqua;
+    
+        return $this;
+    }
+
+    /**
+     * Get idPlanteAqua
+     *
+     * @return string 
+     */
+    public function getIdPlanteAqua()
+    {
+        return $this->idPlanteAqua;
+    }
+
+    /**
+     * Set medicinal
+     *
+     * @param string $medicinal
+     * @return BotaniqueCollection
+     */
+    public function setMedicinal($medicinal)
+    {
+        $this->medicinal = $medicinal;
+    
+        return $this;
+    }
+
+    /**
+     * Get medicinal
+     *
+     * @return string 
+     */
+    public function getMedicinal()
+    {
+        return $this->medicinal;
+    }
+
+    /**
+     * Set geographyteRegion
+     *
+     * @param string $geographyteRegion
+     * @return BotaniqueCollection
+     */
+    public function setGeographyteRegion($geographyteRegion)
+    {
+        $this->geographyteRegion = $geographyteRegion;
+    
+        return $this;
+    }
+
+    /**
+     * Get geographyteRegion
+     *
+     * @return string 
+     */
+    public function getGeographyteRegion()
+    {
+        return $this->geographyteRegion;
+    }
+
+    /**
+     * Set geographyteId
+     *
+     * @param string $geographyteId
+     * @return BotaniqueCollection
+     */
+    public function setGeographyteId($geographyteId)
+    {
+        $this->geographyteId = $geographyteId;
+    
+        return $this;
+    }
+
+    /**
+     * Get geographyteId
+     *
+     * @return string 
+     */
+    public function getGeographyteId()
+    {
+        return $this->geographyteId;
+    }
+
+    /**
+     * Set inventaire
+     *
+     * @param string $inventaire
+     * @return BotaniqueCollection
+     */
+    public function setInventaire($inventaire)
+    {
+        $this->inventaire = $inventaire;
+    
+        return $this;
+    }
+
+    /**
+     * Get inventaire
+     *
+     * @return string 
+     */
+    public function getInventaire()
+    {
+        return $this->inventaire;
+    }
+
+    /**
+     * Set etiquetteControle
+     *
+     * @param string $etiquetteControle
+     * @return BotaniqueCollection
+     */
+    public function setEtiquetteControle($etiquetteControle)
+    {
+        $this->etiquetteControle = $etiquetteControle;
+    
+        return $this;
+    }
+
+    /**
+     * Get etiquetteControle
+     *
+     * @return string 
+     */
+    public function getEtiquetteControle()
+    {
+        return $this->etiquetteControle;
+    }
+
+    /**
+     * Set etiquetteType
+     *
+     * @param string $etiquetteType
+     * @return BotaniqueCollection
+     */
+    public function setEtiquetteType($etiquetteType)
+    {
+        $this->etiquetteType = $etiquetteType;
+    
+        return $this;
+    }
+
+    /**
+     * Get etiquetteType
+     *
+     * @return string 
+     */
+    public function getEtiquetteType()
+    {
+        return $this->etiquetteType;
+    }
+
+    /**
+     * Set observations
+     *
+     * @param string $observations
+     * @return BotaniqueCollection
+     */
+    public function setObservations($observations)
+    {
+        $this->observations = $observations;
+    
+        return $this;
+    }
+
+    /**
+     * Get observations
+     *
+     * @return string 
+     */
+    public function getObservations()
+    {
+        return $this->observations;
+    }
+
+    /**
+     * Set intervention
+     *
+     * @param string $intervention
+     * @return BotaniqueCollection
+     */
+    public function setIntervention($intervention)
+    {
+        $this->intervention = $intervention;
+    
+        return $this;
+    }
+
+    /**
+     * Get intervention
+     *
+     * @return string 
+     */
+    public function getIntervention()
+    {
+        return $this->intervention;
+    }
+
+    /**
+     * Set graineCulture
+     *
+     * @param string $graineCulture
+     * @return BotaniqueCollection
+     */
+    public function setGraineCulture($graineCulture)
+    {
+        $this->graineCulture = $graineCulture;
+    
+        return $this;
+    }
+
+    /**
+     * Get graineCulture
+     *
+     * @return string 
+     */
+    public function getGraineCulture()
+    {
+        return $this->graineCulture;
+    }
+
+    /**
+     * Set graineNature
+     *
+     * @param string $graineNature
+     * @return BotaniqueCollection
+     */
+    public function setGraineNature($graineNature)
+    {
+        $this->graineNature = $graineNature;
+    
+        return $this;
+    }
+
+    /**
+     * Get graineNature
+     *
+     * @return string 
+     */
+    public function getGraineNature()
+    {
+        return $this->graineNature;
+    }
+
+    /**
+     * Set graineCommerce
+     *
+     * @param string $graineCommerce
+     * @return BotaniqueCollection
+     */
+    public function setGraineCommerce($graineCommerce)
+    {
+        $this->graineCommerce = $graineCommerce;
+    
+        return $this;
+    }
+
+    /**
+     * Get graineCommerce
+     *
+     * @return string 
+     */
+    public function getGraineCommerce()
+    {
+        return $this->graineCommerce;
+    }
+
+    /**
+     * Set commandeGraine
+     *
+     * @param string $commandeGraine
+     * @return BotaniqueCollection
+     */
+    public function setCommandeGraine($commandeGraine)
+    {
+        $this->commandeGraine = $commandeGraine;
+    
+        return $this;
+    }
+
+    /**
+     * Get commandeGraine
+     *
+     * @return string 
+     */
+    public function getCommandeGraine()
+    {
+        return $this->commandeGraine;
+    }
+
+    /**
+     * Set etiquetteSachet
+     *
+     * @param string $etiquetteSachet
+     * @return BotaniqueCollection
+     */
+    public function setEtiquetteSachet($etiquetteSachet)
+    {
+        $this->etiquetteSachet = $etiquetteSachet;
+    
+        return $this;
+    }
+
+    /**
+     * Get etiquetteSachet
+     *
+     * @return string 
+     */
+    public function getEtiquetteSachet()
+    {
+        return $this->etiquetteSachet;
+    }
+
+    /**
+     * Set recolteNature1
+     *
+     * @param string $recolteNature1
+     * @return BotaniqueCollection
+     */
+    public function setRecolteNature1($recolteNature1)
+    {
+        $this->recolteNature1 = $recolteNature1;
+    
+        return $this;
+    }
+
+    /**
+     * Get recolteNature1
+     *
+     * @return string 
+     */
+    public function getRecolteNature1()
+    {
+        return $this->recolteNature1;
+    }
+
+    /**
+     * Set recolteNature2
+     *
+     * @param string $recolteNature2
+     * @return BotaniqueCollection
+     */
+    public function setRecolteNature2($recolteNature2)
+    {
+        $this->recolteNature2 = $recolteNature2;
+    
+        return $this;
+    }
+
+    /**
+     * Get recolteNature2
+     *
+     * @return string 
+     */
+    public function getRecolteNature2()
+    {
+        return $this->recolteNature2;
+    }
+
+    /**
+     * Set recolteNature3
+     *
+     * @param string $recolteNature3
+     * @return BotaniqueCollection
+     */
+    public function setRecolteNature3($recolteNature3)
+    {
+        $this->recolteNature3 = $recolteNature3;
+    
+        return $this;
+    }
+
+    /**
+     * Get recolteNature3
+     *
+     * @return string 
+     */
+    public function getRecolteNature3()
+    {
+        return $this->recolteNature3;
+    }
+
+    /**
+     * Set recolteJardin1
+     *
+     * @param string $recolteJardin1
+     * @return BotaniqueCollection
+     */
+    public function setRecolteJardin1($recolteJardin1)
+    {
+        $this->recolteJardin1 = $recolteJardin1;
+    
+        return $this;
+    }
+
+    /**
+     * Get recolteJardin1
+     *
+     * @return string 
+     */
+    public function getRecolteJardin1()
+    {
+        return $this->recolteJardin1;
+    }
+
+    /**
+     * Set recolteJardin2
+     *
+     * @param string $recolteJardin2
+     * @return BotaniqueCollection
+     */
+    public function setRecolteJardin2($recolteJardin2)
+    {
+        $this->recolteJardin2 = $recolteJardin2;
+    
+        return $this;
+    }
+
+    /**
+     * Get recolteJardin2
+     *
+     * @return string 
+     */
+    public function getRecolteJardin2()
+    {
+        return $this->recolteJardin2;
+    }
+
+    /**
+     * Set controle
+     *
+     * @param string $controle
+     * @return BotaniqueCollection
+     */
+    public function setControle($controle)
+    {
+        $this->controle = $controle;
+    
+        return $this;
+    }
+
+    /**
+     * Get controle
+     *
+     * @return string 
+     */
+    public function getControle()
+    {
+        return $this->controle;
+    }
+
+    /**
+     * Set indexSeminum
+     *
+     * @param string $indexSeminum
+     * @return BotaniqueCollection
+     */
+    public function setIndexSeminum($indexSeminum)
+    {
+        $this->indexSeminum = $indexSeminum;
+    
+        return $this;
+    }
+
+    /**
+     * Get indexSeminum
+     *
+     * @return string 
+     */
+    public function getIndexSeminum()
+    {
+        return $this->indexSeminum;
+    }
+
+    /**
+     * Set indexSeminumNum
+     *
+     * @param string $indexSeminumNum
+     * @return BotaniqueCollection
+     */
+    public function setIndexSeminumNum($indexSeminumNum)
+    {
+        $this->indexSeminumNum = $indexSeminumNum;
+    
+        return $this;
+    }
+
+    /**
+     * Get indexSeminumNum
+     *
+     * @return string 
+     */
+    public function getIndexSeminumNum()
+    {
+        return $this->indexSeminumNum;
+    }
+
+    /**
+     * Set isProvenance
+     *
+     * @param string $isProvenance
+     * @return BotaniqueCollection
+     */
+    public function setIsProvenance($isProvenance)
+    {
+        $this->isProvenance = $isProvenance;
+    
+        return $this;
+    }
+
+    /**
+     * Get isProvenance
+     *
+     * @return string 
+     */
+    public function getIsProvenance()
+    {
+        return $this->isProvenance;
+    }
+
+    /**
+     * Set isRecolte
+     *
+     * @param string $isRecolte
+     * @return BotaniqueCollection
+     */
+    public function setIsRecolte($isRecolte)
+    {
+        $this->isRecolte = $isRecolte;
+    
+        return $this;
+    }
+
+    /**
+     * Get isRecolte
+     *
+     * @return string 
+     */
+    public function getIsRecolte()
+    {
+        return $this->isRecolte;
+    }
+
+    /**
+     * Set numProvenance
+     *
+     * @param string $numProvenance
+     * @return BotaniqueCollection
+     */
+    public function setNumProvenance($numProvenance)
+    {
+        $this->numProvenance = $numProvenance;
+    
+        return $this;
+    }
+
+    /**
+     * Get numProvenance
+     *
+     * @return string 
+     */
+    public function getNumProvenance()
+    {
+        return $this->numProvenance;
+    }
+
+    /**
+     * Set plantation
+     *
+     * @param integer $plantation
+     * @return BotaniqueCollection
+     */
+    public function setPlantation($plantation)
+    {
+        $this->plantation = $plantation;
+    
+        return $this;
+    }
+
+    /**
+     * Get plantation
+     *
+     * @return integer 
+     */
+    public function getPlantation()
+    {
+        return $this->plantation;
+    }
+
+    /**
+     * Set idTaxon
+     *
+     * @param \NTE\BogartBundle\Entity\BotaniqueTaxon $idTaxon
+     * @return BotaniqueCollection
+     */
+    public function setIdTaxon(\NTE\BogartBundle\Entity\BotaniqueTaxon $idTaxon = null)
+    {
+        $this->idTaxon = $idTaxon;
+    
+        return $this;
+    }
+
+    /**
+     * Get idTaxon
+     *
+     * @return \NTE\BogartBundle\Entity\BotaniqueTaxon 
+     */
+    public function getIdTaxon()
+    {
+        return $this->idTaxon;
+    }
+
+    /**
+     * Set secteur
+     *
+     * @param \NTE\BogartBundle\Entity\BotaniqueEndroit $secteur
+     * @return BotaniqueCollection
+     */
+    public function setSecteur(\NTE\BogartBundle\Entity\BotaniqueEndroit $secteur = null)
+    {
+        $this->secteur = $secteur;
+    
+        return $this;
+    }
+
+    /**
+     * Get secteur
+     *
+     * @return \NTE\BogartBundle\Entity\BotaniqueEndroit 
+     */
+    public function getSecteur()
+    {
+        return $this->secteur;
+    }
+
+    /**
+     * Set fournisseur
+     *
+     * @param string $fournisseur
+     * @return BotaniqueCollection
+     */
+    public function setFournisseur($fournisseur)
+    {
+#        $this->fournisseur = $fournisseur;
+#    
+#        return $this;
+        return null;
+    }
+
+    /**
+     * Get fournisseur
+     *
+     * @return string 
+     */
+    public function getFournisseur()
+    {
+#        return $this->fournisseur;
+        if ($this->idTaxon) {
+            foreach($this->idTaxon->getAccessions() as $accession) {
+                if ($accession->getAnnee() == $this->annee && $accession->getNumero() == $this->numero) {
+                    return $accession->getIdFournisseur()."";
+                }
+            }
+        }
+        return null;
+    }
+
+    /**
+     * Set provenance
+     *
+     * @param string $provenance
+     * @return BotaniqueCollection
+     */
+    public function setProvenance($provenance)
+    {
+#        $this->provenance = $provenance;
+#    
+#        return $this;
+        return null;
+    }
+
+    /**
+     * Get provenance
+     *
+     * @return string 
+     */
+    public function getProvenance()
+    {
+#        return $this->provenance;
+        if ($this->idTaxon) {
+            foreach($this->idTaxon->getAccessions() as $accession) {
+                if ($accession->getAnnee() == $this->annee && $accession->getNumero() == $this->numero) {
+                    return $accession->getProvenance()."";
+                }
+            }
+        }
+        return null;
+    }
+}

@@ -1,0 +1,12 @@
+{% extends 'NTEBogartBundle::layout.html.twig' %}
+
+{% block content %}<h1>Accueil</h1>
+
+    <li>
+        <a href="{{ path('taxon') }}">La liste des Taxons</a>
+    </li>
+    <li>
+        <a href="{{ path('search') }}">Rechercher des Taxons</a>
+    </li>
+
+{% endblock %}

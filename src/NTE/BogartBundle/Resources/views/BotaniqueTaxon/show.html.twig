@@ -1,0 +1,68 @@
+{% extends 'NTEBogartBundle::layout.html.twig' %}
+
+{% block title %}<title>{{ 'Taxon'|trans }} - BoGart</title>{% endblock %}
+
+{% block breadcrumb %}
+    <ul class="breadcrumbs">
+        <li><a href="{{ path('bogart') }}">{{ 'Accueil'|trans }}</a></li>
+        <li><a href="{{ path('taxon') }}">{{ 'Taxons'|trans }}</a></li>
+        <li class="current"><span>{{ entity.nom }}</span></li>
+    </ul>
+{% endblock %}
+
+{% block content %}
+<h1>Taxon: {{ entity.nom }}</h1>
+
+<table class="record_properties" width="100%">
+    <tbody>
+        <tr>
+            <th width="120" align="right">{{ 'Nom'|trans }}</th>
+            <td>{{ entity.nom }}</td>
+        </tr>
+        <tr>
+            <th align="right">{{ 'Nom fr'|trans }}</th>
+            <td>{{ entity.nomFr }}</td>
+        </tr>
+        <tr>
+            <th align="right">{{ 'Nom de'|trans }}</th>
+            <td>{{ entity.nomDe }}</td>
+        </tr>
+        <tr>
+            <th align="right">{{ 'Synonyme'|trans }}</th>
+            <td>{{ entity.synonyme }}</td>
+        </tr>
+        <tr>
+            <th align="right">{{ 'Floraison'|trans }}</th>
+            <td>{% for floraison in entity.floraison %}{{ floraison }}{% if not loop.last %}, {% endif %}{% endfor %}</td>
+        </tr>
+        <tr>
+            <th align="right">{{ 'Origine'|trans }}</th>
+            <td>{{ entity.origines }}</td>
+        </tr>
+        <tr>
+            <th align="right">{{ 'Famille'|trans }}</th>
+            <td>{{ entity.famille1 }}</td>
+        </tr>
+        <tr>
+            <th align="right">{{ 'Menace'|trans }}</th>
+            <td>{{ entity.menace }}</td>
+        </tr>
+        <tr>
+            <th align="right">{{ 'Cites'|trans }}</th>
+            <td>{{ entity.cites }}</td>
+        </tr>
+        <tr>
+            <th align="right">{{ 'Secteur(s)'|trans }}</th>
+            <td>{% for collection in  entity.collections %}{{ collection.secteur }}<br /> {% endfor %}</td>
+        </tr>
+        <tr>
+            <th align="right">{{ 'Photo(s)'|trans }}</th>
+            <td>{% for photo in entity.fichiers %}{% media photo.media, 'small' %}<br /> {% endfor %}</td>
+        </tr>
+        <tr>
+            <th align="right">{{ 'Catégorie(s)'|trans }}</th>
+            <td>{% for categorie in entity.categorie %}{{ categorie }}{% if loop.index < entity.categorie|length %}, {% endif %} {% endfor %}</td>
+        </tr>
+    </tbody>
+</table>
+{% endblock %}

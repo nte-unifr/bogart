@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="I18n" table="i18n">
+    <id name="id" type="integer" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="locale" type="string" column="locale" length="6" nullable="false"/>
+    <field name="model" type="string" column="model" length="255" nullable="false"/>
+    <field name="foreignKey" type="integer" column="foreign_key" nullable="false"/>
+    <field name="field" type="string" column="field" length="255" nullable="false"/>
+    <field name="content" type="text" column="content" nullable="true"/>
+  </entity>
+</doctrine-mapping>

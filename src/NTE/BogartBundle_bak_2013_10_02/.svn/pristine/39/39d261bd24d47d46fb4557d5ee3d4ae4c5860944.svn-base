@@ -1,0 +1,150 @@
+{% extends 'NTEBogartBundle::parcours.html.twig' %}
+
+{% block content %}
+    <!-- PAGE INDEX -->
+    <div data-role="page" id="index">
+        <div data-theme="b" data-role="header" data-position="fixed">
+            <h3>BoGart</h3>
+		    <a href="{{ path('parcours') }}{% if(app.request.attributes.get('_locale') == 'de') %}/de/{% else %}/fr/{% endif %}" data-icon="home" data-iconpos="notext" data-direction="reverse" rel="external">Home</a>
+        </div>
+
+        <div data-role="content">
+            <h2>{{ 'Bienvenue sur BoGart' | trans }}</h2>
+            <h3>{{ 'Introduisez le codage de la plante souhaitée' | trans }}:</h3>
+            <form action="{{ path('parcours_taxon2') }}" method="get" data-ajax="false">
+                <div data-role="fieldcontain">
+	                <input type="text" name="numero" id="numero" value="" placeholder="{{ 'Entrez le code d\'une plante' | trans }}" />
+                </div>
+            </form>
+            <h3>{{ 'Liste des parcours' | trans }}:</h3>
+            <ul data-role="listview" data-inset="true">
+                {% for p in parcours %}
+                <li><a href="{{ path('parcours_show', { 'id': p.id }) }}" rel="external">{{ p.numero }}. {% if(app.request.attributes.get('_locale') == 'de') %}{{ p.nomDe }}{% else %}{{ p.nomFr }}{% endif %}</a></li>
+                {% endfor %}
+            </ul>
+            <br />
+            <br />
+            <a rel="external" href="{{ path('parcours') }}/de/" data-role="button">Deutsch</a>
+            <a rel="external" href="{{ path('parcours') }}/fr/" data-role="button">Français</a>
+        </div>
+        
+        <div data-theme="b" data-role="footer" data-position="fixed">	
+	        <div data-role="navbar" data-mini="true">
+		        <ul>
+			        <li>
+                        <a href="#about" data-iconpos="notext" data-icon="info">about BoGart</a>
+			        </li>
+			        <li>
+                        <a href="#settings" data-iconpos="notext" data-icon="gear">settings</a>
+			        </li>
+		        </ul>
+            </div>
+        </div>
+	
+    </div>
+
+    <!-- PAGE ABOUT -->
+
+    <script type="text/javascript">
+
+	    (function(window, $, PhotoSwipe){
+		
+		    $(document).ready(function(){
+			
+			    var options = {loop: false,
+						       captionAndToolbarAutoHideDelay: 0,};
+			    $("#Gallery a").photoSwipe(options);
+		
+		    });
+		
+		
+	    }(window, window.jQuery, window.Code.PhotoSwipe));
+	
+    </script>
+    <div data-role="page" id="about">
+        <div data-theme="b" data-role="header" data-position="fixed">
+            <h3>BoGart</h3>
+		    <a href="{{ path('parcours') }}{% if(app.request.attributes.get('_locale') == 'de') %}/de/{% else %}/fr/{% endif %}" data-icon="home" data-iconpos="notext" data-direction="reverse" rel="external">Home</a>
+        </div>
+
+        <div data-role="content">
+            <h2>About</h2>
+            
+            {% if(app.request.attributes.get('_locale') == 'de') %}
+            <h3>Botanischer Garten der Universität Freiburg</h3>
+            <div id="Gallery" class="gallery">
+                <a href="{{ asset('bundles/ntebogart/images/planjbf.gif') }}" rel="external"><img src="{{ asset('bundles/ntebogart/images/planjbf.gif') }}" alt="Plan" width="25%" align="right" border="1" /></a>
+                Departement Biologie<br />Chemin du Musée 10<br />CH-1700 Freiburg<br />Tel. 026 300 88 86<br />Fax 026 300 97 40<br /><a class="ui-link" href="mailto:jardin-botanique@unifr.ch">jardin-botanique@unifr.ch</a>
+            </div>
+            {% else %}
+            <h3>Jardin botanique de l'Universit&eacute; de Fribourg</h3>
+            <div id="Gallery" class="gallery">
+                <a href="{{ asset('bundles/ntebogart/images/planjbf.gif') }}" rel="external"><img src="{{ asset('bundles/ntebogart/images/planjbf.gif') }}" alt="Plan" width="25%" align="right" border="1" /></a>
+                Departement Biologie<br />Chemin du Mus&eacute;e 10<br />CH-1700 Freiburg<br />Tel. 026 300 88 86<br />Fax 026 300 97 40<br /><a href="mailto:jardin-botanique@unifr.ch">jardin-botanique@unifr.ch</a>
+            </div>
+            {% endif %}
+            
+            <a rel="external" href="http://www.unifr.ch/jardin-botanique">www.unifr.ch/jardin-botanique</a>
+            <br /><br />
+            <h3>Centre NTE</h3>
+            Universit&eacute; de Fribourg<br /> Bd. P&eacute;rolles 90<br /> CH-1700 Fribourg<br />T&eacute;l: +41 26 300 8334<br /><a href="mailto:nte@unifr.ch">nte@unifr.ch</a><br />
+            <a rel="external" href="http://nte.unifr.ch">nte.unifr.ch</a>
+        </div>
+        
+        <div data-theme="b" data-role="footer" data-position="fixed">	
+	        <div data-role="navbar" data-mini="true">
+		        <ul>
+			        <li>
+                        <a href="{{ path('parcours') }}" data-iconpos="notext" data-icon="back" rel="external">back</a>
+			        </li>
+			        <li>
+                        <a href="#settings" data-iconpos="notext" data-icon="gear">settings</a>
+			        </li>
+		        </ul>
+            </div>
+        </div>
+	
+    </div>
+
+    <!-- PAGE SETTINGS -->
+    <div data-role="page" id="settings">
+        <div data-theme="b" data-role="header" data-position="fixed">
+            <h3>BoGart - settings</h3>
+		    <a href="{{ path('parcours') }}{% if(app.request.attributes.get('_locale') == 'de') %}/de/{% else %}/fr/{% endif %}" data-icon="home" data-iconpos="notext" data-direction="reverse" rel="external">Home</a>
+        </div>
+
+        <div data-role="content">
+            <script type="text/javascript">
+                $(document).ready(function(){
+                    $('#add_fr').click(function() {
+                        $.cookie("bota_lang", "fr", { expires: 360 });
+                    });
+                    $('#add_de').click(function(e) {
+                        $.cookie("bota_lang", "de", { expires: 360 });
+                    });
+                });
+            </script>
+            <h2>Settings</h2>
+            <div>
+                <div data-role="fieldcontain">
+                    <a rel="external" href="{{ path('parcours') }}/fr/" data-role="button">Français</a>
+                    <a rel="external" href="{{ path('parcours') }}/de/" data-role="button">Deutsch</a>
+                </div>
+            </div>
+        </div>
+        
+        <div data-theme="b" data-role="footer" data-position="fixed">	
+	        <div data-role="navbar" data-mini="true">
+		        <ul>
+			        <li>
+                        <a href="#about" data-iconpos="notext" data-icon="info" rel="external">about BoGart</a>
+			        </li>
+			        <li>
+                        <a href="{{ path('parcours') }}" data-iconpos="notext" data-icon="back" rel="external">back</a>
+			        </li>
+		        </ul>
+            </div>
+        </div>
+	
+    </div>
+{% endblock %}

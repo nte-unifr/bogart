@@ -1,0 +1,65 @@
+{% extends 'NTEBogartBundle:Search:index.html.twig' %}
+
+{% block breadcrumb %}
+    <ul class="breadcrumbs">
+        <li><a href="{{ path('taxon') }}">{{ 'Accueil'|trans }}</a></li>
+        <li class="current"><span>{{ 'Recherche'|trans }}</span></li>
+    </ul>
+{% endblock %}
+
+{% block content %}
+    {{ parent() }}
+
+
+<h3>{{ 'Résultats de la recherche'|trans }} ({{ count }})</h3>
+
+<div class="row">
+    <div class="one columns"></div>
+    <div class="twelve columns">
+        <a name="results"></a>
+        {% if entities|length > 0 %}
+        <table class="records_list">
+            <thead>
+                <tr>
+                    <th>{{ 'Nom'|trans }}</th>
+                    <th>{{ 'Famille'|trans }}</th>
+                    <th>{{ 'Nom français'|trans }}</th>
+                    <th>{{ 'Nom allemand'|trans }}</th>
+                    <th>{{ 'Catégories'|trans }}</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for entity in entities %}
+                <tr>
+                    <td><a href="{{ path('taxon_show', { 'id': entity.id }) }}">{{ entity.nom }}</a></td>
+                    <td>{{ entity.famille1 }} {{ entity.famille2 }}</td>
+                    <td>{{ entity.nomFr }}</td>
+                    <td>{{ entity.nomDe }}</td>
+                    <td>{% for cat in entity.categorie %}{% if loop.index > 1 %}, {% endif %}{{ cat }}{% endfor %}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        {% endif %}
+    </div>
+</div>
+
+{% if pager is defined and pager.haveToPaginate %}
+<div class="row">
+    <div class="twelve columns">
+        <br />
+        {% set cats = '' %}
+        {% set separateur = '' %}
+        {% for cat in categories %}
+            {% if loop.index > 1 %}
+                {% set separateur = ',' %}
+            {% endif %}
+            {% set cats = cats ~ separateur ~ cat %}
+        {% endfor %}
+        {{ pagerfanta(pager, 'my_view_1', {'routeName': 'search_page_2', 'previous_message': 'previous'|trans, 'next_message': 'next'|trans, 'page_template': '<a href="%href%#results">%text%</a>', 'routeParams' : {'search': search~'++'~floraison~'++'~origine~'++'~secteur~'++'~cats} }) }}
+        <br /><br />
+    </div>
+</div>
+{% endif %}
+
+{% endblock %}

@@ -1,0 +1,10 @@
+{% extends admin.getTemplate('base_list_field') %}
+
+{% block field %}
+    {% for key, val in value %}
+        <a href="{% path val.fichier, 'big' %}">
+            <img src="{% path val.fichier, 'small' %}" style="height:30px" />
+        </a>
+    {% endfor %}
+{% endblock %}
+

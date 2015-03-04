@@ -1,0 +1,44 @@
+# src/NTE/BogartBundle/Resources/translations/messages.de.yml
+form.label_locale: Sprache
+Nom scientifique: Wissenschaftlicher Name
+Famille: Familie
+Nom français: Name
+Origine: Herkunft
+Habitat: Lebensraum
+Remarques: Bemerkungen
+Bienvenue sur BoGart: Willkommen
+Introduisez le codage de la plante souhaitée: Geben Sie den Code der gewünschten Pflanze ein
+Entrez le code d'une plante: Geben Sie den Code aus einer Pflanze
+Liste des parcours: Rundgänge
+Fin du parcours: Ende
+Retourner à l'accueil: Home
+Aspect/Habitat: Wuchsform/Lebensraum
+Inconnu: Unbekannt
+ou: oder
+Prochaine plante: Nächste Pflanze
+Accueil: Home
+Nom: Name
+Nom de: Name de
+Nom fr: Name fr
+Recherche: Suche
+Mots clés: Taxon
+Secteur: Sektor
+Sexe: Sex
+Recommencer depuis le début du parcours: Neustart
+Début du parcours: Beginn
+Commencer le parcours: Start
+Geographyte Region: Géophytes Région
+Geographyte Id: Géophytes N°
+Aide: Hilfe
+Fermer: Schließen
+Floraison: Blütezeit
+Catégories: Kategorie
+Choisissez un secteur: Wählen Sie einen Sektor aus
+Résultats de la recherche: Resultate der Suche
+Nom français: Franz. Name
+Nom allemand: Deutscher Name
+choose_season: -- Wählen Sie einen Monat aus --
+choose_sector: -- Wählen Sie einen Sektor aus --
+previous: Vorherige
+next: Nächste
+Ancienne famille: Alte Familie

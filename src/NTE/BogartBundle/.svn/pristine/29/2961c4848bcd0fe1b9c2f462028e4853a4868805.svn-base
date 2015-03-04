@@ -1,0 +1,32 @@
+{% extends 'SonataAdminBundle::standard_layout.html.twig' %}
+
+
+
+{% block stylesheets %}
+    {{ parent() }}
+            <link rel="stylesheet" href="{{ asset('bundles/ntebogart/css/layout_nte.css') }}" type="text/css" media="all" />
+            {%if form is defined %}{{ form_stylesheet(form) }}{% endif %}
+            <link rel="stylesheet" href="{{ asset('bundles/ntebogart/css/colorpicker.css') }}" type="text/css" media="all" />
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script type="text/javascript" src="{{ asset('bundles/ntebogart/js/colorpicker.js') }}"></script>
+    <script src="{{ asset('bundles/ntebogart/js/ckeditor/ckeditor.js') }}" type="text/javascript"></script>
+    {%if form is defined %}{{ form_javascript(form) }}{% endif %}
+{% endblock %}
+
+{% block top_bar_after_nav %}
+    <li class="dropdown">
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+        {{ 'form.label_locale'|trans({}, 'SonataUserBundle') }}
+        <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+            {% for locale in ['de', 'fr'] %}
+                <li {% if locale == app.request.locale %}class="active"{% endif %}>
+                    <a href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale' : locale})) }}">{{ locale }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+    </li>
+{% endblock %}
