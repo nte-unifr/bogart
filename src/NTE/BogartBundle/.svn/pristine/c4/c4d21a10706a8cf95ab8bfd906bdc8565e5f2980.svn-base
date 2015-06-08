@@ -1,8 +1,0 @@
-{% extends 'SonataAdminBundle:CRUD:base_list_field.html.twig' %}
-
-{% block field %}
-    {% for val in value %}
-        <a href="{{ path('admin_nte_bogart_botaniquetaxon_edit', {'id': val.id}) }}">{{ val.taxon }}</a> {% if val.taxon.public %} (public){% endif %}<br />
-    {% endfor %}
-{% endblock %}
-
