@@ -149,14 +149,6 @@ sonata_media:
             formats:
                 small: { width: 100 , quality: 70}
                 big:   { width: 500 , quality: 70}
-
-    cdn:
-        server:
-#            path: /~sanzeyc/bogart_sf/web/uploads/media # http://localhost/ ...
-            #  path: /bogart_tmp/uploads/media
-             path: /uploads/media
-#            path: /jardin-botanique/bogart/uploads/media # http://www3.unifr.ch/jardin-botanique/bogart/
-
     filesystem:
         local:
             directory:  %kernel.root_dir%/../web/uploads/media
