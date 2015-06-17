@@ -89,37 +89,6 @@
         </div>
 
         <div class="well well-sm text-center">&copy; Bogart - <a href="http://nte.unifr.ch">Centre DIT-NTE</a> - Université de Fribourg - Suisse</div>
-
-        {#<div class="twelve columns">
-
-            {% block entete %}
-                <h1><img src="{{ asset('bundles/ntebogart/images/logo.png') }}" alt="BoGart (logo)" /></h1>
-                <!-- Entire Navbar Code -->
-                <ul class="nav-bar">
-                  <li class="active"><a href="{{ path('bogart') }}">{{ 'Accueil'|trans }}</a></li>
-                  <li><a href="{{ path('taxon') }}">{{ 'Taxons'|trans }}</a></li>
-                  <li>
-                    <a href="{{ path('search') }}">{{ 'Recherche'|trans }}</a>
-                  </li>
-                {% for locale in ['fr', 'de'] %}
-                    <li>
-                        <a href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale' : locale})) }}">{{ locale }}</a>
-                    </li>
-                {% endfor %}
-                </ul>
-
-            {% endblock %}
-
-            {% block breadcrumb %}
-                <ul class="breadcrumbs">
-                    <li><a href="#">{{ 'Accueil'|trans }}</a></li>
-                </ul>
-            {% endblock %}
-
-            {% block content %}
-            {% endblock %}
-
-        </div>#}
     </div>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
