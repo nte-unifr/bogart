@@ -1,24 +1,97 @@
-<html>
-<header>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     {% block title %}<title>BoGart</title>{% endblock %}
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ asset('bundles/ntebogart/stylesheets/foundation.min.css') }}" type="text/css" media="all" />
-    <link rel="stylesheet" href="{{ asset('bundles/ntebogart/stylesheets/app.css') }}" type="text/css" media="all" />
 
-    <script src="{{ asset('bundles/ntebogart/javascripts/modernizr.foundation.js') }}" type="text/javascript"></script>
-    
-    <style>
-        body {line-height: 1.6em;}
-        nav a, nav span {
-            margin: 5px;
-        }
-    </style>
-</header>
+    <!-- Open Sans from Google fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,700,300,600,800,400' rel='stylesheet' type='text/css'>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="{{ asset('bundles/ntebogart/stylesheets/bootstrap.min.css') }}">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
 <body>
 
-    <div class="row">
-        <div class="twelve columns">
-        
+    <div class="container">
+        <div class="row">
+            <nav class="navbar navbar-transversal">
+                <div class="container-fluid">
+
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav navbar-right">
+                            {% for locale in ['fr', 'de'] %}
+                                <li{% if app.request.locale == locale %} class="active"{% endif %}>
+                                    <a href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale' : locale})) }}">{{ locale }}</a>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </div><!-- /.navbar-collapse -->
+                </div><!-- /.container-fluid -->
+            </nav>
+        </div>
+        <div class="row">
+            <div class="col-xs-6 col-md-6">
+                <img src="{{ asset('bundles/ntebogart/images/unifr_universite_cut.png') }}" alt="Unifr">
+            </div>
+            <div class="col-xs-6 col-md-6">
+                <div class="application-title">
+                    Bogart<br>
+                    Jardin Botanique
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <nav class="navbar navbar-default">
+                    <div class="container-fluid">
+                        <!-- Brand and toggle get grouped for better mobile display -->
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <span class="navbar-brand">Tableau de bord</span>
+                        </div>
+
+                        <!-- Collect the nav links, forms, and other content for toggling -->
+                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                            <ul class="nav navbar-nav">
+                                <li class="active"><a href="{{ path('bogart') }}">{{ 'Accueil'|trans }}</a></li>
+                                <li><a href="{{ path('taxon') }}">{{ 'Taxons'|trans }}</a></li>
+                            </ul>
+                            <ul class="nav navbar-nav navbar-right">
+                                <li><a href="{{ path('search') }}">{{ 'Recherche'|trans }}</a></li>
+                            </ul>
+                        </div><!-- /.navbar-collapse -->
+                    </div><!-- /.container-fluid -->
+                </nav>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-12">
+                {% block content %}
+                {% endblock %}
+            </div>
+        </div>
+
+        <div class="well well-sm text-center">&copy; Bogart - <a href="http://nte.unifr.ch">Centre DIT-NTE</a> - Université de Fribourg - Suisse</div>
+
+        {#<div class="twelve columns">
+
             {% block entete %}
                 <h1><img src="{{ asset('bundles/ntebogart/images/logo.png') }}" alt="BoGart (logo)" /></h1>
                 <!-- Entire Navbar Code -->
@@ -36,17 +109,22 @@
                 </ul>
 
             {% endblock %}
-                
+
             {% block breadcrumb %}
                 <ul class="breadcrumbs">
                     <li><a href="#">{{ 'Accueil'|trans }}</a></li>
                 </ul>
             {% endblock %}
-            
+
             {% block content %}
             {% endblock %}
-        
-        </div>
+
+        </div>#}
     </div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="{{ asset('bundles/ntebogart/javascripts/bootstrap.min.js') }}"></script>
 </body>
 </html>

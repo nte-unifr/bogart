@@ -2,10 +2,16 @@
 
 {% block content %}
 
-    <div class="twelve columns">
-        <h1>{% if page|length > 0 %}{% if app.request.attributes.get('_locale') == 'de' %}{{ page.0.titleDe }}{% else %}{{ page.0.title }}{% endif %}{% else %}Accueil{% endif %}</h1>
-        {% if page|length > 0 %}{% if app.request.attributes.get('_locale') == 'de' %}{{ page.0.textDe|raw }}{% else %}{{ page.0.text|raw }}{% endif %}{% endif %}
-        <br />
+    <div class="jumbotron">
+        <div class="row">
+            <div class="col-sm-12 col-md-6">
+                <h1>{% if page|length > 0 %}{% if app.request.attributes.get('_locale') == 'de' %}{{ page.0.titleDe }}{% else %}{{ page.0.title }}{% endif %}{% else %}Accueil{% endif %}</h1>
+                <p>{% if page|length > 0 %}{% if app.request.attributes.get('_locale') == 'de' %}{{ page.0.textDe|raw }}{% else %}{{ page.0.text|raw }}{% endif %}{% endif %}</p>
+            </div>
+            <div class="col-sm-12 col-md-6 text-right">
+                <img src="{{ asset('bundles/ntebogart/images/logo_transparent.png') }}" alt="">
+            </div>
+        </div>
     </div>
 
 {% endblock %}
