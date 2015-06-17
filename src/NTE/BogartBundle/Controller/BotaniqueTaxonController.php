@@ -29,7 +29,7 @@ class BotaniqueTaxonController extends Controller
     public function indexAction($page = 1)
     {
         $em = $this->getDoctrine()->getManager();
-        $max_page = 10; # nb de résultats par page
+        $max_page = 20; # nb de résultats par page
 
 #        $entities = $em->getRepository('NTEBogartBundle:BotaniqueTaxon')->findAll();
         $criteria = array('public' => true);
