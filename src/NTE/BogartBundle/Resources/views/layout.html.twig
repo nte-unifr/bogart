@@ -27,19 +27,15 @@
 
     <div class="container">
         <div class="row">
-            <nav class="navbar navbar-transversal">
+            <nav class="navbar navbar-transversal hidden-xs">
                 <div class="container-fluid">
-
-                    <!-- Collect the nav links, forms, and other content for toggling -->
-                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                        <ul class="nav navbar-nav navbar-right">
-                            {% for locale in ['fr', 'de'] %}
-                                <li{% if app.request.locale == locale %} class="active"{% endif %}>
-                                    <a href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale' : locale})) }}">{{ locale }}</a>
-                                </li>
-                            {% endfor %}
-                        </ul>
-                    </div><!-- /.navbar-collapse -->
+                    <ul class="nav navbar-nav navbar-right">
+                        {% for locale in ['fr', 'de'] %}
+                            <li{% if app.request.locale == locale %} class="active"{% endif %}>
+                                <a href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale' : locale})) }}">{{ locale }}</a>
+                            </li>
+                        {% endfor %}
+                    </ul>
                 </div><!-- /.container-fluid -->
             </nav>
         </div>
@@ -60,7 +56,7 @@
                     <div class="container-fluid">
                         <!-- Brand and toggle get grouped for better mobile display -->
                         <div class="navbar-header">
-                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-navbar-collapse">
                                 <span class="sr-only">Toggle navigation</span>
                                 <span class="icon-bar"></span>
                                 <span class="icon-bar"></span>
@@ -70,13 +66,25 @@
                         </div>
 
                         <!-- Collect the nav links, forms, and other content for toggling -->
-                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <div class="collapse navbar-collapse" id="main-navbar-collapse">
                             <ul class="nav navbar-nav">
-                                <li class="active"><a href="{{ path('bogart') }}">{{ 'Accueil'|trans }}</a></li>
-                                <li><a href="{{ path('taxon') }}">{{ 'Taxons'|trans }}</a></li>
+                                <li class="{% block home_active %}{% endblock %}"><a href="{{ path('bogart') }}">{{ 'Accueil'|trans }}</a></li>
+                                <li class="{% block taxons_active %}{% endblock %}"><a href="{{ path('taxon') }}">{{ 'Taxons'|trans }}</a></li>
                             </ul>
                             <ul class="nav navbar-nav navbar-right">
-                                <li><a href="{{ path('search') }}">{{ 'Recherche'|trans }}</a></li>
+                                <li class="{% block search_active %}{% endblock %}"><a href="{{ path('search') }}">{{ 'Recherche'|trans }}</a></li>
+                            </ul>
+                            <ul class="nav navbar-nav navbar-right visible-xs-block">
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-language"></i> {{ "Langue"|trans }} <span class="caret"></span></a>
+                                    <ul class="dropdown-menu" role="menu">
+                                        {% for locale in ['fr', 'de'] %}
+                                            <li{% if app.request.locale == locale %} class="active"{% endif %}>
+                                                <a href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale' : locale})) }}">{{ locale }}</a>
+                                            </li>
+                                        {% endfor %}
+                                    </ul>
+                                </li>
                             </ul>
                         </div><!-- /.navbar-collapse -->
                     </div><!-- /.container-fluid -->
