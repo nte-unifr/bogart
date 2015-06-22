@@ -37,8 +37,8 @@ Choisissez un secteur: Wählen Sie einen Sektor aus
 Résultats de la recherche: Resultate der Suche
 Nom français: Franz. Name
 Nom allemand: Deutscher Name
-choose_season: -- Wählen Sie einen Monat aus --
-choose_sector: -- Wählen Sie einen Sektor aus --
+choose_season: Alle
+choose_sector: Alle
 previous: Vorherige
 next: Nächste
 Ancienne famille: Alte Familie
@@ -48,3 +48,4 @@ Jardin Botanique: Botanischer Garten
 Tableau de bord: Dashboard
 Université de Fribourg: Universität Freiburg
 Langue: Sprache
+Rechercher: Suche

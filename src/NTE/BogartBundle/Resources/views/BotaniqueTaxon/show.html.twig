@@ -5,8 +5,12 @@
 
 {% block content %}
     <ol class="breadcrumb">
-      <li><a href="{{ path('taxon_page', { 'page': app.request.query.get('page') }) }}">{{ "Taxons"|trans }}</a></li>
-      <li class="active">{{ entity.nom }}</li>
+        {% if app.request.query.get('search') %}
+            <li><a href="{{ path('search_page_2', { 'search': app.request.query.get('search_params'), 'page': app.request.query.get('page') }) }}">{{ 'Recherche'|trans }}</a></li>
+        {% else %}
+            <li><a href="{{ path('taxon_page', { 'page': app.request.query.get('page') }) }}">{{ 'Taxons'|trans }}</a></li>
+        {% endif %}
+        <li class="active">{{ entity.nom }}</li>
     </ol>
 
     <div class="page-header">
@@ -43,11 +47,11 @@
         <div class="col-xs-12 col-sm-6">
             <div class="row">
                 {% for photo in entity.fichiers %}
-                    <div class="col-xs-6 col-sm-4">
-                        <a href="#" class="thumbnail">
-                            {% media photo.media, 'small' %}
-                        </a>
-                    </div>
+                <div class="col-xs-6 col-sm-4">
+                    <a href="#" class="thumbnail">
+                        {% media photo.media, 'small' %}
+                    </a>
+                </div>
                 {% endfor %}
             </div>
         </div>
