@@ -17,11 +17,9 @@ class BotaniqueParcoursPositionAdmin extends Admin
     /**
      * @return array
      */
-    // surcharge de la méthode pour avoir TOUS les champs (y compris les liaisons) dans l'exportation CSV, XLS, ..
     public function getExportFields()
     {
-        $accession = $this->container->get('doctrine.orm.entity_manager')->getClassMetadata('NTE\BogartBundle\Entity\BotaniqueParcoursPosition');
-        return array_merge($accession->getFieldNames(), $accession->getAssociationNames());
+        return array('id', 'taxon', 'parcours', 'numero', 'direction', 'distance', 'commentaireFr', 'commentaireDe');
     }
 
     protected function configureDatagridFilters(DatagridMapper $datagrid)
