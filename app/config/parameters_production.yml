@@ -1,0 +1,15 @@
+parameters:
+    database_driver:   pdo_mysql
+    database_host:     mysql1.unifr.ch
+    database_port:     ~
+    database_name:     10254_bogart
+    database_user:     10254_bogart
+    database_password: 3nBqy?3dK4&HP5D*
+
+    mailer_transport:  smtp
+    mailer_host:       127.0.0.1
+    mailer_user:       ~
+    mailer_password:   ~
+
+    locale:            en
+    secret:            ***REMOVED***
