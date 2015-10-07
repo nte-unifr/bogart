@@ -54,7 +54,7 @@
                             <td>{{ entity.famille2 }}</td>
                             <td>{{ entity.nomFr }}</td>
                             <td>{{ entity.nomDe }}</td>
-                            <td>{% for cat in entity.categorie %}{% if loop.index > 1 %}, {% endif %}{{ cat }}{% endfor %}</td>
+                            <td>{% for cat in entity.categories %}{% if loop.index > 1 %}, {% endif %}{{ cat }}{% endfor %}</td>
                             <td><a href="{{ path('taxon_show', { 'id': entity.id, 'page': page, 'search': true, 'search_params': search~'++'~floraison~'++'~origine~'++'~secteur~'++'~cats }) }}" class="btn btn-info btn-sm hidden-xs"><i class="fa fa-eye"></i></a></td>
                         </tr>
                     {% endfor %}
