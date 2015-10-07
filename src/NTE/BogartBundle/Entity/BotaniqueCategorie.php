@@ -31,7 +31,7 @@ class BotaniqueCategorie
     private $nom;
 
     /**
-     * @ORM\ManyToMany(targetEntity="BotaniqueCategorie", mappedBy="categories")
+     * @ORM\ManyToMany(targetEntity="BotaniqueTaxon", mappedBy="categories")
      */
     private $taxons;
 
@@ -87,23 +87,22 @@ class BotaniqueCategorie
     /**
      * Add taxons
      *
-     * @param \NTE\BogartBundle\Entity\CategoriesTaxons $taxons
+     * @param \NTE\BogartBundle\Entity\BotaniqueTaxon $taxons
      * @return BotaniqueCategorie
      */
-    public function addTaxon(\NTE\BogartBundle\Entity\CategoriesTaxons $taxons)
+    public function addTaxon(\NTE\BogartBundle\Entity\BotaniqueTaxon $taxons)
     {
-        $taxons->setCategorie($this); # pour la collection dans le formulaire
         $this->taxons[] = $taxons;
-
+    
         return $this;
     }
 
     /**
      * Remove taxons
      *
-     * @param \NTE\BogartBundle\Entity\CategoriesTaxons $taxons
+     * @param \NTE\BogartBundle\Entity\BotaniqueTaxon $taxons
      */
-    public function removeTaxon(\NTE\BogartBundle\Entity\CategoriesTaxons $taxons)
+    public function removeTaxon(\NTE\BogartBundle\Entity\BotaniqueTaxon $taxons)
     {
         $this->taxons->removeElement($taxons);
     }
@@ -111,7 +110,7 @@ class BotaniqueCategorie
     /**
      * Get taxons
      *
-     * @return \Doctrine\Common\Collections\Collection
+     * @return \Doctrine\Common\Collections\Collection 
      */
     public function getTaxons()
     {
