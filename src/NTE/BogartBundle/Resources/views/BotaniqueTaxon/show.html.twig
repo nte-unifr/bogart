@@ -41,7 +41,7 @@
                 <dt>{{ 'Secteur(s)'|trans }}</dt>
                 <dd>{% for collection in entity.collections %}{{ collection.secteur }}{% if not loop.last %}, {% endif %}{% endfor %}</dd>
                 <dt>{{ 'Catégorie(s)'|trans }}</dt>
-                <dd>{% for categorie in entity.categorie %}{{ categorie }}{% if not loop.last %}, {% endif %} {% endfor %}</dd>
+                <dd>{% for categorie in entity.categories %}{{ categorie }}{% if not loop.last %}, {% endif %} {% endfor %}</dd>
             </dl>
         </div>
         <div class="col-xs-12 col-sm-6">

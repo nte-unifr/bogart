@@ -197,7 +197,7 @@ class BotaniqueTaxonAdmin extends Admin
                 ->add('nom', null, array('read_only' => true, 'help'=>'Le nom est généré automatiquement sur la base des champs suivants: "famille 1", "espèce" et "espèce auteur"'))
                 ->add('vieuxNom', null, array('read_only' => true))
                 ->add('public')
-                ->add('categorie', 'sonata_type_model', array('label' => 'Catégories (base de données publique)', 'expanded' => true, 'multiple' => true, 'template' => 'NTEBogartBundle:Taxon:croissance.html.twig'))
+                ->add('categories', 'sonata_type_model', array('label' => 'Catégories (base de données publique)', 'expanded' => true, 'multiple' => true, 'template' => 'NTEBogartBundle:Taxon:croissance.html.twig'))
                 ->add('famille1', 'sonata_type_model', array('required' => false, 'empty_value' => '- - - - - -',))
                 ->add('famille2', 'sonata_type_model', array('required' => false, 'empty_value' => '- - - - - -',))
                 ->add('genreInter')

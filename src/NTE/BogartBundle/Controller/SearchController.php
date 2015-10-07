@@ -94,7 +94,7 @@ class SearchController extends Controller
             }
 
             if ($categories != '') {
-                $query->leftJoin('t.categorie', 'cat')
+                $query->leftJoin('t.categories', 'cat')
                       ->andWhere("cat.id IN (:categories)")
                           ->setParameter('categories', implode(', ', $categories));
             }

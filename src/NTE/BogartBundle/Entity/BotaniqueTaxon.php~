@@ -3965,14 +3965,4 @@ class BotaniqueTaxon
 
         return $this;
     }
-
-    /**
-     * Get categories
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getCategories()
-    {
-        return $this->categories;
-    }
 }
