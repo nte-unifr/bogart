@@ -913,16 +913,16 @@ class BotaniqueTaxon
      */
     private $croissance_noms;
 
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     *
-     * @ORM\ManyToMany(targetEntity="BotaniqueCategorie")
-     * @ORM\JoinTable(name="categories_taxons",
-     *     joinColumns={@ORM\JoinColumn(name="taxon_id", referencedColumnName="id")},
-     *     inverseJoinColumns={@ORM\JoinColumn(name="categorie_id", referencedColumnName="id")}
-     * )
-     */
-    private $categorie;
+    // /**
+    //  * @var \Doctrine\Common\Collections\Collection
+    //  *
+    //  * @ORM\ManyToMany(targetEntity="BotaniqueCategorie")
+    //  * @ORM\JoinTable(name="categories_taxons",
+    //  *     joinColumns={@ORM\JoinColumn(name="taxon_id", referencedColumnName="id")},
+    //  *     inverseJoinColumns={@ORM\JoinColumn(name="categorie_id", referencedColumnName="id")}
+    //  * )
+    //  */
+    // private $categorie;
 
 
     public function __toString()
