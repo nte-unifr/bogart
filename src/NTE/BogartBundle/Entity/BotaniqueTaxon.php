@@ -3921,58 +3921,35 @@ class BotaniqueTaxon
     }
 
     /**
-     * Add categorie
-     *
-     * @param \NTE\BogartBundle\Entity\BotaniqueCategorie $categorie
-     * @return BotaniqueTaxon
-     */
-    public function addCategorie(\NTE\BogartBundle\Entity\BotaniqueCategorie $categorie)
-    {
-        $this->categorie[] = $categorie;
-
-        return $this;
-    }
-
-    /**
-     * Remove categorie
-     *
-     * @param \NTE\BogartBundle\Entity\BotaniqueCategorie $categorie
-     */
-    public function removeCategorie(\NTE\BogartBundle\Entity\BotaniqueCategorie $categorie)
-    {
-        $this->categorie->removeElement($categorie);
-    }
-
-    /**
-     * Get categorie
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getCategorie()
-    {
-        return $this->categorie;
-    }
-
-    /**
-     * Set categorie
-     *
-     * @param \NTE\BogartBundle\Entity\BotaniqueCategorie $categorie
-     * @return BotaniqueTaxon
-     */
-    public function setCategorie(\NTE\BogartBundle\Entity\BotaniqueCategorie $categorie = null)
-    {
-        $this->categorie = $categorie;
-
-        return $this;
-    }
-
-    /**
      * Get categories
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getCategories()
     {
         return $this->categories;
+    }
+
+    /**
+     * Add categories
+     *
+     * @param \NTE\BogartBundle\Entity\BotaniqueCategorie $categories
+     * @return BotaniqueTaxon
+     */
+    public function addCategorie(\NTE\BogartBundle\Entity\BotaniqueCategorie $categories)
+    {
+        $this->categories[] = $categories;
+    
+        return $this;
+    }
+
+    /**
+     * Remove categories
+     *
+     * @param \NTE\BogartBundle\Entity\BotaniqueCategorie $categories
+     */
+    public function removeCategorie(\NTE\BogartBundle\Entity\BotaniqueCategorie $categories)
+    {
+        $this->categories->removeElement($categories);
     }
 }
