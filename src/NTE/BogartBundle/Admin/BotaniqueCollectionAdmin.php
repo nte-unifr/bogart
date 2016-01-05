@@ -88,6 +88,7 @@ class BotaniqueCollectionAdmin extends Admin
             ->add('indexSeminum')
             ->add('controle')
             ->add('commandeEtiquettes')
+            ->add('etiquetteSachet')
             ->add('recolteJardin1')
             ->add('recolteJardin2')
             ->add('periodeDeSemis')
@@ -229,7 +230,7 @@ class BotaniqueCollectionAdmin extends Admin
                 ->add('medicinal', 'choice', array('choices' => $medicinal, 'empty_value' => '- - - - - -','required' => false))
                 ->add('geographyteRegion', 'choice', array('choices' => $geophyte_region, 'empty_value' => '- - - - - -','required' => false))
                 ->add('geographyteId')
-                ->add('etiquetteSachet', 'choice', array('choices' => $ouinon, 'empty_value' => '- - - - - -','required' => false))
+                ->add('etiquetteSachet')
 
                 ->add('taxonFamille1', null, array('read_only' => true))
                 ->add('taxonControle', null, array('read_only' => true))
