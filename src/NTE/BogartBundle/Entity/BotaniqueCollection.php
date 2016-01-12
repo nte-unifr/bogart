@@ -146,20 +146,6 @@ class BotaniqueCollection
     /**
      * @var string
      *
-     * @ORM\Column(name="graine_nature", type="string", length=255, nullable=true)
-     */
-    private $graineNature;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="graine_commerce", type="string", length=255, nullable=true)
-     */
-    private $graineCommerce;
-
-    /**
-     * @var string
-     *
      * @ORM\Column(name="commande_graine", type="string", length=255, nullable=true)
      */
     private $commandeGraine;
@@ -757,52 +743,6 @@ class BotaniqueCollection
     public function getGraineCulture()
     {
         return $this->graineCulture;
-    }
-
-    /**
-     * Set graineNature
-     *
-     * @param string $graineNature
-     * @return BotaniqueCollection
-     */
-    public function setGraineNature($graineNature)
-    {
-        $this->graineNature = $graineNature;
-
-        return $this;
-    }
-
-    /**
-     * Get graineNature
-     *
-     * @return string
-     */
-    public function getGraineNature()
-    {
-        return $this->graineNature;
-    }
-
-    /**
-     * Set graineCommerce
-     *
-     * @param string $graineCommerce
-     * @return BotaniqueCollection
-     */
-    public function setGraineCommerce($graineCommerce)
-    {
-        $this->graineCommerce = $graineCommerce;
-
-        return $this;
-    }
-
-    /**
-     * Get graineCommerce
-     *
-     * @return string
-     */
-    public function getGraineCommerce()
-    {
-        return $this->graineCommerce;
     }
 
     /**
@@ -1671,14 +1611,14 @@ class BotaniqueCollection
     public function setCommandeEtiquettes($commandeEtiquettes)
     {
         $this->commandeEtiquettes = $commandeEtiquettes;
-    
+
         return $this;
     }
 
     /**
      * Get commandeEtiquettes
      *
-     * @return string 
+     * @return string
      */
     public function getCommandeEtiquettes()
     {

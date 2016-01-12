@@ -119,7 +119,6 @@ class BotaniqueCollectionAdmin extends Admin
             ->add('secteur')
             ->add('_action', 'actions', array(
                 'actions' => array(
-                    'view' => array(),
                     'edit' => array(),
                     'delete' => array(),
                 )
@@ -217,10 +216,12 @@ class BotaniqueCollectionAdmin extends Admin
                 ->add('commandeEtiquettes')
 #                ->add('intervention', 'choice', array('choices' => $annees, 'empty_value' => '- - - - - -','required' => false, 'label' => 'Interventions terrain'))
                 ->add('intervention', null, array('label' => 'Interventions terrain'))
-                ->add('graineCulture', 'choice', array('choices' => $annees, 'empty_value' => '- - - - - -','required' => false, 'label' => 'Graineterie culture'))
-                ->add('graineNature', 'choice', array('choices' => $annees, 'empty_value' => '- - - - - -','required' => false, 'label' => 'Graineterie nature'))
-                ->add('graineCommerce', 'choice', array('choices' => $annees, 'empty_value' => '- - - - - -','required' => false, 'label' => 'Graineterie commerce'))
+                ->add('graineCulture', 'choice', array('choices' => $annees, 'empty_value' => '- - - - - -','required' => false, 'label' => 'Graineterie'))
                 ->add('commandeGraine')
+                ->add('etiquetteSachet')
+                ->add('indexSeminum', 'choice', array('choices' => $ouinon, 'empty_value' => '- - - - - -','required' => false))
+                ->add('indexSeminumNum')
+                ->add('isProvenance', 'choice', array('choices' => $provenance, 'empty_value' => '- - - - - -','required' => false))
                 ->add('multiplication')
                 ->add('hivernage')
                 ->add('protectionHiv1')
@@ -230,7 +231,6 @@ class BotaniqueCollectionAdmin extends Admin
                 ->add('medicinal', 'choice', array('choices' => $medicinal, 'empty_value' => '- - - - - -','required' => false))
                 ->add('geographyteRegion', 'choice', array('choices' => $geophyte_region, 'empty_value' => '- - - - - -','required' => false))
                 ->add('geographyteId')
-                ->add('etiquetteSachet')
 
                 ->add('taxonFamille1', null, array('read_only' => true))
                 ->add('taxonControle', null, array('read_only' => true))
@@ -241,77 +241,10 @@ class BotaniqueCollectionAdmin extends Admin
                 ->add('recolteNature3')
                 ->add('recolteJardin1')
                 ->add('recolteJardin2')
-                ->add('indexSeminum', 'choice', array('choices' => $ouinon, 'empty_value' => '- - - - - -','required' => false))
-                ->add('indexSeminumNum')
-                ->add('isProvenance', 'choice', array('choices' => $provenance, 'empty_value' => '- - - - - -','required' => false))
                 ->add('isRecolte')
                 ->add('periodeDeSemis')
                 ->end()
             ;
         }
-    }
-
-    /**
-
-    * {@inheritdoc}
-
-    */
-
-    protected function configureShowFields(ShowMapper $showMapper)
-    {
-        $showMapper
-            ->add('idTaxon', null, array('label' => 'Taxon'))
-            ->add('vieuxNom')
-            ->add('secteur')
-            ->add('annee')
-            ->add('numero')
-            ->add('vieuxProvenance')
-            ->add('inventaire')
-            ->add('inventaireControle')
-            ->add('plantation')
-            ->add('typeDeProvenance')
-            ->add('provenance')
-            ->add('fournisseur')
-            ->add('ipen')
-            ->add('determination')
-            ->add('etiquetteControle')
-            ->add('etiquetteType')
-            ->add('observations')
-            ->add('controle', null, array('label' => 'Nom du Contrôleur'))
-            ->add('commandeEtiquettes')
-            ->add('intervention')
-            ->add('graineCulture')
-            ->add('graineNature')
-            ->add('graineCommerce')
-            ->add('commandeGraine')
-            ->add('multiplication')
-            ->add('hivernage')
-            ->add('protectionHiv1')
-            ->add('protectionHiv2')
-            ->add('idTaxon.idFournisseur')
-            ->add('roseraie')
-            ->add('idPlanteAqua')
-            ->add('medicinal')
-            ->add('geographyteRegion')
-            ->add('geographyteId')
-            ->add('etiquetteSachet')
-
-                ->add('taxonFamille1')
-                ->add('taxonControle')
-                ->add('taxonBiblio')
-
-            ->add('recolteNature1')
-            ->add('recolteNature2')
-            ->add('recolteNature3')
-            ->add('recolteJardin1')
-            ->add('recolteJardin2')
-            ->add('indexSeminum')
-            ->add('indexSeminumNum')
-            ->add('isProvenance')
-            ->add('isRecolte')
-            ->add('numProvenance')
-            ->add('periodeDeSemis')
-            ->end()
-        ;
     }
 }
