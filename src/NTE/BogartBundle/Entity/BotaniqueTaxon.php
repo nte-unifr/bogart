@@ -930,7 +930,7 @@ class BotaniqueTaxon
     public function getCategoriesAsString()
 	{
         $result = "";
-        foreach ($this->categorie as $categorie) {
+        foreach ($this->categories as $categorie) {
             $result == "" ? $separateur = "" : $separateur = ", ";
             $result .= $separateur . $categorie;
         }
@@ -3939,7 +3939,7 @@ class BotaniqueTaxon
     public function addCategorie(\NTE\BogartBundle\Entity\BotaniqueCategorie $categories)
     {
         $this->categories[] = $categories;
-    
+
         return $this;
     }
 
