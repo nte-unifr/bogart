@@ -80,7 +80,7 @@ class BotaniqueTaxonAdmin extends Admin
             ->add('public')
             ->add('marchePrintemps')
             ->add('origines')
-            ->add('categorie')
+            ->add('categories')
             ->add('hivernage')
             ->add('protectionHiv1')
             ->add('protectionHiv2')
