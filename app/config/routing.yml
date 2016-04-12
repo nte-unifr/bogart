@@ -56,7 +56,9 @@ taxon_show:
 
 parcours:
     pattern:   /parcours
-    defaults: { _controller: NTEBogartBundle:Parcours:index }
+    defaults:
+        _controller: NTEBogartBundle:Parcours:index
+        _locale: fr
 
 parcours1:
     pattern:   /parcours/
