@@ -170,8 +170,9 @@ media:
 parcours_list:
     path: /parcours/list/{_locale}
     defaults:
+        _locale: fr
         _controller: FrameworkBundle:Redirect:urlRedirect
-        path: /parcours/{_locale}
+        path: /parcours
         permanent: true
 
 
