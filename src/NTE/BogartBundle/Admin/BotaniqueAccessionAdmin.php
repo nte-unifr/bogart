@@ -100,7 +100,7 @@ class BotaniqueAccessionAdmin extends Admin
             ->addIdentifier('idTaxon', null, array('label' => 'Taxon'))
             ->add('annee')
             ->add('numero')
-            ->add('idFournisseur.filemakerNum', null, array('label' => 'Numéro du fournisseur (FM)'))
+            ->add('idCollection1', null, array('label' => 'Secteur jardin 1'))
             ->add('idFournisseur', null, array('label' => 'Titre de Fichier'))
             ->add('_action', 'actions', array(
                 'actions' => array(
