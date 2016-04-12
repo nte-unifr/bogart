@@ -166,7 +166,13 @@ media:
     resource: '@SonataMediaBundle/Resources/config/routing/media.xml'
     prefix: /media
 
-
+# fix wrong path from mobile app
+parcours_list:
+    path: /parcours/list/{_locale}
+    defaults:
+        _controller: FrameworkBundle:Redirect:urlRedirect
+        path: /parcours/{_locale}
+        permanent: true
 
 
 # test appcache
