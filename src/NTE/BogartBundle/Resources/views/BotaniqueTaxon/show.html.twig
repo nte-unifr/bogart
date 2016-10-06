@@ -48,7 +48,7 @@
             <div class="row">
                 {% for photo in entity.fichiers %}
                 <div class="col-xs-6 col-sm-4">
-                    <a href="#" class="thumbnail">
+                    <a href="{% path photo.media, 'big' %}" class="thumbnail taxon-photo">
                         {% media photo.media, 'small' %}
                     </a>
                 </div>
