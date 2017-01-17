@@ -58,6 +58,7 @@ class BotaniqueAccessionAdmin extends Admin
             ->add('idCollection3', null, array('label' => 'Secteur jardin 3'))
             ->add('location', null, array('label' => 'Station'))
             ->add('idPays', null, array('label' => 'Pays'))
+            ->add('commandeEtiquettes')
         ;
     }
 
@@ -216,6 +217,7 @@ class BotaniqueAccessionAdmin extends Admin
                     ->add('plantation')
                     ->add('verification', null, array('label' => 'Déterminé par'))
                     ->add('idBiblio', null, array('label' => 'Biblio Détermination'))
+                    ->add('commandeEtiquettes')
                 ->end()
             ;
         }

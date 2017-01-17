@@ -330,6 +330,13 @@ class BotaniqueAccession
      * @ORM\Column(name="ipen_numero", type="string", length=255, nullable=true)
      */
     private $ipenNumero;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="commande_etiquettes", type="string", length=255, nullable=true)
+     */
+    private $commandeEtiquettes;
     
     
     
@@ -1287,5 +1294,28 @@ class BotaniqueAccession
     public function getIpenIdPays()
     {
         return $this->ipenIdPays;
+    }
+
+    /**
+     * Set commandeEtiquettes
+     *
+     * @param string $commandeEtiquettes
+     * @return BotaniqueAccession
+     */
+    public function setCommandeEtiquettes($commandeEtiquettes)
+    {
+        $this->commandeEtiquettes = $commandeEtiquettes;
+
+        return $this;
+    }
+
+    /**
+     * Get commandeEtiquettes
+     *
+     * @return string 
+     */
+    public function getCommandeEtiquettes()
+    {
+        return $this->commandeEtiquettes;
     }
 }
