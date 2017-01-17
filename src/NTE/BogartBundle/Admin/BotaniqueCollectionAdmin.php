@@ -84,6 +84,18 @@ class BotaniqueCollectionAdmin extends Admin
             ->add('etiquetteControle')
             ->add('etiquetteType')
             ->add('observations')
+            ->add('observations_non_vide', 'doctrine_orm_callback', array(
+                'callback' => function($queryBuilder, $alias, $field, $value) {
+                    if (!$value['value']) {
+                        return;
+                    }
+                    $queryBuilder->andWhere($alias.'.observations IS NOT NULL');
+                    $queryBuilder->andWhere($alias.".observations <> ''");
+
+                    return true;
+                },
+                'field_type' => 'checkbox'
+            ))
             ->add('commandeGraine')
             ->add('indexSeminum')
             ->add('controle')
