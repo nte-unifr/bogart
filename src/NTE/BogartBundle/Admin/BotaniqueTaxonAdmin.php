@@ -75,7 +75,7 @@ class BotaniqueTaxonAdmin extends Admin
             ->add('genre')
             ->add('espece')
             ->add('sspNom')
-            ->add('vieuxSynonyme')
+            ->add('synonyme')
             ->add('controle', null, array('label' => 'Contrôle Nomenclature'))
             ->add('public')
             ->add('marchePrintemps')
