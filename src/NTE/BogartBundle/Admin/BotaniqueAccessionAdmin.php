@@ -53,6 +53,20 @@ class BotaniqueAccessionAdmin extends Admin
             ->add('numero')
             ->add('idFournisseur.filemakerNum', null, array('label' => 'Numéro du fournisseur (FM)'))
             ->add('idFournisseur.nom', null, array('label' => 'Nom du Fournisseur'))
+            ->add('secteur_jardin_global', 'doctrine_orm_callback',
+                array(
+                    'callback' => function($queryBuilder, $alias, $field, $value) {
+                        if (!$value['value']) {
+                            return;
+                        }
+                        $queryBuilder->leftJoin($alias.'.idCollection1', 'c1');
+                        $queryBuilder->leftJoin($alias.'.idCollection2', 'c2');
+                        $queryBuilder->leftJoin($alias.'.idCollection3', 'c3');
+                        $queryBuilder->andWhere("c1.nom LIKE '%".$value['value']."%' OR c2.nom LIKE '%".$value['value']."%' OR c3.nom LIKE '%".$value['value']."%'");
+                        return true;
+                    }
+                )
+            )
             ->add('idCollection1', null, array('label' => 'Secteur jardin 1'))
             ->add('idCollection2', null, array('label' => 'Secteur jardin 2'))
             ->add('idCollection3', null, array('label' => 'Secteur jardin 3'))
