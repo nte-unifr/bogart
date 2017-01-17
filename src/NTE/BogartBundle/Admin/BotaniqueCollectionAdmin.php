@@ -219,7 +219,7 @@ class BotaniqueCollectionAdmin extends Admin
                 ->add('graineCulture', 'choice', array('choices' => $annees, 'empty_value' => '- - - - - -','required' => false, 'label' => 'Graineterie'))
                 ->add('commandeGraine')
                 ->add('etiquetteSachet')
-                ->add('indexSeminum', 'choice', array('choices' => $ouinon, 'empty_value' => '- - - - - -','required' => false))
+                ->add('indexSeminum', null, array('required' => false))
                 ->add('indexSeminumNum')
                 ->add('isProvenance', 'choice', array('choices' => $provenance, 'empty_value' => '- - - - - -','required' => false))
                 ->add('multiplication')
