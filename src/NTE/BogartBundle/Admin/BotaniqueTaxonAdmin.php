@@ -80,6 +80,18 @@ class BotaniqueTaxonAdmin extends Admin
             ->add('public')
             ->add('marchePrintemps')
             ->add('origines')
+            ->add('origines_non_vide', 'doctrine_orm_callback', array(
+                'callback' => function($queryBuilder, $alias, $field, $value) {
+                    if (!$value['value']) {
+                        return;
+                    }
+                    $queryBuilder->andWhere($alias.'.origines IS NOT NULL');
+                    $queryBuilder->andWhere($alias.".origines <> ''");
+
+                    return true;
+                },
+                'field_type' => 'checkbox'
+            ))
             ->add('categories')
             ->add('hivernage')
             ->add('protectionHiv1')

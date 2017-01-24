@@ -97,6 +97,18 @@ class BotaniqueCollectionAdmin extends Admin
                 'field_type' => 'checkbox'
             ))
             ->add('commandeGraine')
+            ->add('commandeGraine_non_vide', 'doctrine_orm_callback', array(
+                'callback' => function($queryBuilder, $alias, $field, $value) {
+                    if (!$value['value']) {
+                        return;
+                    }
+                    $queryBuilder->andWhere($alias.'.commandeGraine IS NOT NULL');
+                    $queryBuilder->andWhere($alias.".commandeGraine <> ''");
+
+                    return true;
+                },
+                'field_type' => 'checkbox'
+            ))
             ->add('indexSeminum')
             ->add('controle')
             ->add('commandeEtiquettes')
@@ -104,6 +116,18 @@ class BotaniqueCollectionAdmin extends Admin
             ->add('recolteJardin1')
             ->add('recolteJardin2')
             ->add('periodeDeSemis')
+            ->add('periodeDeSemis_non_vide', 'doctrine_orm_callback', array(
+                'callback' => function($queryBuilder, $alias, $field, $value) {
+                    if (!$value['value']) {
+                        return;
+                    }
+                    $queryBuilder->andWhere($alias.'.periodeDeSemis IS NOT NULL');
+                    $queryBuilder->andWhere($alias.".periodeDeSemis <> ''");
+
+                    return true;
+                },
+                'field_type' => 'checkbox'
+            ))
         ;
     }
 
