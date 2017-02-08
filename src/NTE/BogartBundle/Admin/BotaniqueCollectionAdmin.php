@@ -84,7 +84,31 @@ class BotaniqueCollectionAdmin extends Admin
             ->add('etiquetteControle')
             ->add('etiquetteType')
             ->add('observations')
+            ->add('observations_non_vide', 'doctrine_orm_callback', array(
+                'callback' => function($queryBuilder, $alias, $field, $value) {
+                    if (!$value['value']) {
+                        return;
+                    }
+                    $queryBuilder->andWhere($alias.'.observations IS NOT NULL');
+                    $queryBuilder->andWhere($alias.".observations <> ''");
+
+                    return true;
+                },
+                'field_type' => 'checkbox'
+            ))
             ->add('commandeGraine')
+            ->add('commandeGraine_non_vide', 'doctrine_orm_callback', array(
+                'callback' => function($queryBuilder, $alias, $field, $value) {
+                    if (!$value['value']) {
+                        return;
+                    }
+                    $queryBuilder->andWhere($alias.'.commandeGraine IS NOT NULL');
+                    $queryBuilder->andWhere($alias.".commandeGraine <> ''");
+
+                    return true;
+                },
+                'field_type' => 'checkbox'
+            ))
             ->add('indexSeminum')
             ->add('controle')
             ->add('commandeEtiquettes')
@@ -92,6 +116,18 @@ class BotaniqueCollectionAdmin extends Admin
             ->add('recolteJardin1')
             ->add('recolteJardin2')
             ->add('periodeDeSemis')
+            ->add('periodeDeSemis_non_vide', 'doctrine_orm_callback', array(
+                'callback' => function($queryBuilder, $alias, $field, $value) {
+                    if (!$value['value']) {
+                        return;
+                    }
+                    $queryBuilder->andWhere($alias.'.periodeDeSemis IS NOT NULL');
+                    $queryBuilder->andWhere($alias.".periodeDeSemis <> ''");
+
+                    return true;
+                },
+                'field_type' => 'checkbox'
+            ))
         ;
     }
 
@@ -219,7 +255,7 @@ class BotaniqueCollectionAdmin extends Admin
                 ->add('graineCulture', 'choice', array('choices' => $annees, 'empty_value' => '- - - - - -','required' => false, 'label' => 'Graineterie'))
                 ->add('commandeGraine')
                 ->add('etiquetteSachet')
-                ->add('indexSeminum', 'choice', array('choices' => $ouinon, 'empty_value' => '- - - - - -','required' => false))
+                ->add('indexSeminum', null, array('required' => false))
                 ->add('indexSeminumNum')
                 ->add('isProvenance', 'choice', array('choices' => $provenance, 'empty_value' => '- - - - - -','required' => false))
                 ->add('multiplication')

@@ -2,20 +2,9 @@ parameters:
     database_driver:   pdo_mysql
     database_host:     127.0.0.1
     database_port:     ~
-    database_name:     bogart_sf
     database_name:     bogart
-    database_user:     bogart
-    database_password: bogart
-
-# tests performance comparaison avec www3
-#   database_driver:   pdo_mysql
-#   database_host:     mysql1.unifr.ch
-#   database_port:     ~
-##   database_name:     bogart_sf
-#   database_name:     10254_bogart
-#   database_user:     10254_bogart
-#   database_password: 3nBqy?3dK4&HP5D*
-
+    database_user:     bogart_user
+    database_password: ***REMOVED***
 
     mailer_transport:  smtp
     mailer_host:       127.0.0.1

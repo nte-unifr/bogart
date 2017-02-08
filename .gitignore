@@ -46,3 +46,4 @@
 /config/deploy.rb
 /lib/capistrano/*
 /.bundle/*
+/log

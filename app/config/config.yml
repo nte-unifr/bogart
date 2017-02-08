@@ -81,6 +81,8 @@ fos_user:
     db_driver: orm
     firewall_name: main
     user_class: NTE\BogartBundle\Entity\User
+    group:
+      group_class: Applicaton\Sonata\UserBundle\Entity\Group
     profile:  # Authentication Form
         form:
             type:               fos_user_profile
@@ -89,7 +91,7 @@ fos_user:
             #validation_groups:  [Authentication] # Please note : this is not the default value
 
 sonata_admin:
-    title:      Bogart - Jardin botanique
+    title:      Bogart
     templates:
         ## default global templates
 #        layout:  SonataAdminBundle::standard_layout.html.twig
@@ -173,3 +175,5 @@ white_october_pagerfanta:
     exceptions_strategy:
         out_of_range_page:        to_http_not_found
         not_valid_current_page:   to_http_not_found
+
+sonata_core: ~
