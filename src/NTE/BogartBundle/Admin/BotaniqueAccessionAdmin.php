@@ -207,7 +207,10 @@ class BotaniqueAccessionAdmin extends Admin
                 ->with('IPEN')
 #                    ->add('idIpen', 'sonata_type_admin', array('label' => 'IPEN', 'required' => false, 'delete' => false))
                     ->add('ipenNom', null, array('label' => 'IPEN Acc.', 'read_only' => true, 'help' => 'Généré sur la base des informations suivantes : '))
-                    ->add('ipenIdPays', null, array('label' => 'Pays'))
+                    ->add('ipenIdPays', null, array(
+                        'label' => 'Pays',
+                        'query_builder' => function(\Doctrine\ORM\EntityRepository $rep) { return $rep->createQueryBuilder('u')->addOrderBy('u.numero', 'ASC')->addOrderBy('u.pays', 'ASC'); }
+                    ))
                     ->add('ipenCondition2', null, array('label' => 'Condition2'))
                     ->add('ipenCode', null, array('label' => 'Code'))
                     ->add('ipenNumero', null, array('label' => 'Numero'))
