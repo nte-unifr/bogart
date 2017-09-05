@@ -60,7 +60,7 @@ class BotaniqueAccession
     /**
      * @var integer
      *
-     * @ORM\Column(name="numero", type="integer", nullable=true)
+     * @ORM\Column(name="numero", type="string", length=255, nullable=true)
      */
     private $numero;
 
@@ -477,7 +477,7 @@ class BotaniqueAccession
     /**
      * Set numero
      *
-     * @param integer $numero
+     * @param string $numero
      * @return BotaniqueAccession
      */
     public function setNumero($numero)
@@ -490,7 +490,7 @@ class BotaniqueAccession
     /**
      * Get numero
      *
-     * @return integer 
+     * @return string 
      */
     public function getNumero()
     {
