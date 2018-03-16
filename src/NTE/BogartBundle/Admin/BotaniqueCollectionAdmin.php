@@ -239,8 +239,6 @@ class BotaniqueCollectionAdmin extends Admin
                 ->add('secteur')
                 ->add('annee')
                 ->add('numero')
-                ->add('vieuxProvenance', null, array('read_only' => true))
-
                 ->add('inventaire', 'choice', array('choices' => $ouinon, 'empty_value' => '- - - - - -','required' => false))
                 ->add('inventaireControle')
                 ->add('plantation')
