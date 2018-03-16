@@ -4012,27 +4012,4 @@ class BotaniqueTaxon
     {
         $this->categories->removeElement($categories);
     }
-
-    /**
-     * Set voileDeProtection
-     *
-     * @param string $voileDeProtection
-     * @return BotaniqueTaxon
-     */
-    public function setVoileDeProtection($voileDeProtection)
-    {
-        $this->voileDeProtection = $voileDeProtection;
-
-        return $this;
-    }
-
-    /**
-     * Get voileDeProtection
-     *
-     * @return string 
-     */
-    public function getVoileDeProtection()
-    {
-        return $this->voileDeProtection;
-    }
 }
