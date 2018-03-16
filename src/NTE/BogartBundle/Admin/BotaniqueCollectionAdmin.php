@@ -26,7 +26,7 @@ class BotaniqueCollectionAdmin extends Admin
     {
         $accession = $this->container->get('doctrine.orm.entity_manager')->getClassMetadata('NTE\BogartBundle\Entity\BotaniqueCollection');
 #        return array_merge($accession->getFieldNames(), $accession->getAssociationNames());
-        return array_merge($accession->getFieldNames(), $accession->getAssociationNames(), array('idTaxon.famille1', 'idTaxon.origines', 'idTaxon.origine1', 'idTaxon.origine2', 'idTaxon.origine3', 'idTaxon.origine4', 'idTaxon.origine5', 'idTaxon.origineAutre', 'idTaxon.croissance_noms'));
+        return array_merge($accession->getFieldNames(), $accession->getAssociationNames(), array('idTaxon.origines', 'idTaxon.origine1', 'idTaxon.origine2', 'idTaxon.origine3', 'idTaxon.origine4', 'idTaxon.origine5', 'idTaxon.origineAutre', 'idTaxon.croissance_noms'));
     }
 
     public function __construct($code, $class, $baseControllerName, ContainerInterface $container)
