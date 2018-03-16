@@ -3,7 +3,7 @@ Geographyte Region: Géophytes Région
 Geographyte Id: Géophytes N°
 Vieux Nom: Nom bot. de Transfert
 Vieux Provenance: Provenance de Transfert
-Determination: Derterminé par
+Determination: Déterminé par
 Etiquette Control: Etiquette à Controller
 Etiquette Type: Type d'étiquette
 Recolte Nature1: Récolte Nature 1
@@ -51,3 +51,5 @@ choose_season: Toutes
 choose_sector: Tous
 previous: Précédent
 next: Suivant
+Controle: Nom du Contrôleur
+Commande Etiquettes: Commande étiquettes plastic
