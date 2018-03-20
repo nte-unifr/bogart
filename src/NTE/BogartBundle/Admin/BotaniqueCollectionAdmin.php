@@ -271,6 +271,7 @@ class BotaniqueCollectionAdmin extends Admin
                 ->add('geographyteId')
 
                 ->add('taxonFamille1', null, array('read_only' => true))
+                ->add('taxonFamille2', 'text', array('read_only' => true, 'label' => 'Taxon Ancienne Famille'))
                 ->add('taxonControle', null, array('read_only' => true))
                 ->add('taxonBiblio', null, array('read_only' => true))
 

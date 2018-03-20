@@ -1494,6 +1494,19 @@ class BotaniqueCollection
     }
 
     /**
+     * Get taxonFamille2
+     *
+     * @return string
+     */
+    public function getTaxonFamille2()
+    {
+		if ($this->idTaxon) {
+			return (string)$this->getIdTaxon()->getFamille2();
+		}
+		return null;
+    }
+
+    /**
      * Set taxonControle
      *
      * @param string $taxonControle
