@@ -649,48 +649,6 @@ class BotaniqueTaxon
     /**
      * @var string
      *
-     * @ORM\Column(name="multiplication", type="string", length=255, nullable=true)
-     */
-    private $multiplication;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="division", type="string", length=255, nullable=true)
-     */
-    private $division;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="hivernage", type="string", length=255, nullable=true)
-     */
-    private $hivernage;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="protection_hiv1", type="string", length=255, nullable=true)
-     */
-    private $protectionHiv1;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="protection_hiv2", type="string", length=255, nullable=true)
-     */
-    private $protectionHiv2;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="voile_de_protection", type="string", length=255, nullable=true)
-     */
-    private $voileDeProtection;
-
-    /**
-     * @var string
-     *
      * @ORM\Column(name="remarques_culture", type="text", nullable=true)
      */
     private $remarquesCulture;
@@ -2843,98 +2801,6 @@ class BotaniqueTaxon
     }
 
     /**
-     * Set multiplication
-     *
-     * @param string $multiplication
-     * @return BotaniqueTaxon
-     */
-    public function setMultiplication($multiplication)
-    {
-        $this->multiplication = $multiplication;
-
-        return $this;
-    }
-
-    /**
-     * Get multiplication
-     *
-     * @return string
-     */
-    public function getMultiplication()
-    {
-        return $this->multiplication;
-    }
-
-    /**
-     * Set hivernage
-     *
-     * @param string $hivernage
-     * @return BotaniqueTaxon
-     */
-    public function setHivernage($hivernage)
-    {
-        $this->hivernage = $hivernage;
-
-        return $this;
-    }
-
-    /**
-     * Get hivernage
-     *
-     * @return string
-     */
-    public function getHivernage()
-    {
-        return $this->hivernage;
-    }
-
-    /**
-     * Set protectionHiv1
-     *
-     * @param string $protectionHiv1
-     * @return BotaniqueTaxon
-     */
-    public function setProtectionHiv1($protectionHiv1)
-    {
-        $this->protectionHiv1 = $protectionHiv1;
-
-        return $this;
-    }
-
-    /**
-     * Get protectionHiv1
-     *
-     * @return string
-     */
-    public function getProtectionHiv1()
-    {
-        return $this->protectionHiv1;
-    }
-
-    /**
-     * Set protectionHiv2
-     *
-     * @param string $protectionHiv2
-     * @return BotaniqueTaxon
-     */
-    public function setProtectionHiv2($protectionHiv2)
-    {
-        $this->protectionHiv2 = $protectionHiv2;
-
-        return $this;
-    }
-
-    /**
-     * Get protectionHiv2
-     *
-     * @return string
-     */
-    public function getProtectionHiv2()
-    {
-        return $this->protectionHiv2;
-    }
-
-    /**
      * Set remarquesCulture
      *
      * @param string $remarquesCulture
@@ -3968,29 +3834,6 @@ class BotaniqueTaxon
     }
 
     /**
-     * Set division
-     *
-     * @param string $division
-     * @return BotaniqueTaxon
-     */
-    public function setDivision($division)
-    {
-        $this->division = $division;
-
-        return $this;
-    }
-
-    /**
-     * Get division
-     *
-     * @return string 
-     */
-    public function getDivision()
-    {
-        return $this->division;
-    }
-
-    /**
      * Add categories
      *
      * @param \NTE\BogartBundle\Entity\BotaniqueCategorie $categories
@@ -4011,28 +3854,5 @@ class BotaniqueTaxon
     public function removeCategory(\NTE\BogartBundle\Entity\BotaniqueCategorie $categories)
     {
         $this->categories->removeElement($categories);
-    }
-
-    /**
-     * Set voileDeProtection
-     *
-     * @param string $voileDeProtection
-     * @return BotaniqueTaxon
-     */
-    public function setVoileDeProtection($voileDeProtection)
-    {
-        $this->voileDeProtection = $voileDeProtection;
-
-        return $this;
-    }
-
-    /**
-     * Get voileDeProtection
-     *
-     * @return string 
-     */
-    public function getVoileDeProtection()
-    {
-        return $this->voileDeProtection;
     }
 }

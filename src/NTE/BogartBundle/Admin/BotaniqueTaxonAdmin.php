@@ -93,9 +93,6 @@ class BotaniqueTaxonAdmin extends Admin
                 'field_type' => 'checkbox'
             ))
             ->add('categories')
-            ->add('hivernage')
-            ->add('protectionHiv1')
-            ->add('protectionHiv2')
 #            ->add('semis', null, array('label' => 'Période de Semis'))
         ;
     }
@@ -199,9 +196,6 @@ class BotaniqueTaxonAdmin extends Admin
             $syn_inter = array('X' => 'X');
             $syn_ssp = array('subsp.' => 'subsp.', 'var.' => 'var.', 'fo.' => 'fo.', 'subvar.' => 'subvar.', 'subf.' => 'subf.', 'nothovar.' => 'nothovar.', 'convar.' => 'convar.');
             $types = array('Médicinale' => 'Médicinale', 'Utile' => 'Utile', 'Toxique' => 'Toxique');
-            $multiplication = array('Bouture' => 'Bouture', 'Plante' => 'Plante', 'Semis' => 'Semis');
-            $hivernage = array('Cave' => 'Cave', 'Couches' => 'Couches', 'Orangerie' => 'Orangerie', 'Petite serre' => 'Petite serre', 'Serre 1' => 'Serre 1', 'Serre 2' => 'Serre 2', 'Serre 3' => 'Serre 3', 'Serre 4' => 'Serre 4');
-            $protection_hiver = array('Branches sapin' => 'Branches sapin', 'Châssis' => 'Châssis', 'Feuilles' => 'Feuilles', 'Fumier' => 'Fumier');
             $floraison = array('janvier' => 'janvier', 'février' => 'février', 'mars' => 'mars', 'avril' => 'avril', 'mai' => 'mai', 'juin' => 'juin',
                                'juillet' => 'juillet', 'août' => 'août', 'septembre' => 'septembre', 'octobre' => 'octobre', 'novembre' => 'novembre', 'décembre' => 'décembre', );
 
@@ -356,12 +350,6 @@ class BotaniqueTaxonAdmin extends Admin
                     ->with('..', array('class' => 'col-md-4'))
                         ->add('melangeTerreNum')
                         ->add('melangeTerre')
-                        ->add('multiplication', 'choice', array('choices' => $multiplication, 'empty_value' => '- - - - - -','required' => false, ))
-                        ->add('division', 'choice', array('choices' => $multiplication, 'empty_value' => '- - - - - -','required' => false, ))
-                        ->add('hivernage', 'choice', array('choices' => $hivernage, 'empty_value' => '- - - - - -','required' => false, ))
-                        ->add('protectionHiv1', 'choice', array('choices' => $protection_hiver, 'empty_value' => '- - - - - -','required' => false, ))
-                        ->add('protectionHiv2', 'choice', array('choices' => $protection_hiver, 'empty_value' => '- - - - - -','required' => false, ))
-                        ->add('voileDeProtection', 'choice', array('choices' => $protection_hiver, 'empty_value' => '- - - - - -','required' => false, ))
                     ->end()
                     ->with('...', array('class' => 'col-md-4'))
                         ->add('remarquesCulture')
@@ -486,10 +474,6 @@ class BotaniqueTaxonAdmin extends Admin
 #                ->add('semis', null, array('label' => 'Période de Semis'))
                 ->add('melangeTerreNum')
                 ->add('melangeTerre')
-    #            ->add('multiplication')
-    #            ->add('hivernage')
-    #            ->add('protectionHiv1')
-    #            ->add('protectionHiv2')
     #            ->add('remarquesCulture')
                 ->add('marchePrintemps')
                 ->add('marchePrix')

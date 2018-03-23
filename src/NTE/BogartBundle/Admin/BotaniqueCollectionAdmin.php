@@ -232,6 +232,9 @@ class BotaniqueCollectionAdmin extends Admin
             $intervention = array('à dét.' => 'à dét.', 'à arr.' => 'à arr.', 'à rempl.' => 'à rempl.', 'à planter' => 'à planter', 'à semer' => 'à semer', );
             $provenance = array('W' => 'W', 'CW' => 'CW');
             $ouinon = array('oui' => 'oui', 'non' => 'non');
+            $multiplication = array('Bouture' => 'Bouture', 'Plante' => 'Plante', 'Semis' => 'Semis', 'Division' => 'Division');
+            $hivernage = array('Cave' => 'Cave', 'Couches' => 'Couches', 'Orangerie' => 'Orangerie', 'Petite serre' => 'Petite serre', 'Serre 1' => 'Serre 1', 'Serre 2' => 'Serre 2', 'Serre 3' => 'Serre 3', 'Serre 4' => 'Serre 4');
+            $protection_hiver = array('Branches sapin' => 'Branches sapin', 'Châssis' => 'Châssis', 'Feuilles' => 'Feuilles', 'Fumier' => 'Fumier', 'Voile de protection' => 'Voile de protection');
 
             $formMapper
                 ->add('idTaxon', 'sonata_type_model_list', array('label' => 'Taxon'))
@@ -260,10 +263,10 @@ class BotaniqueCollectionAdmin extends Admin
                 ->add('indexSeminum', null, array('required' => false))
                 ->add('indexSeminumNum')
                 ->add('isProvenance', 'choice', array('choices' => $provenance, 'empty_value' => '- - - - - -','required' => false))
-                ->add('multiplication')
-                ->add('hivernage')
-                ->add('protectionHiv1')
-                ->add('protectionHiv2')
+                ->add('multiplication', 'choice', array('choices' => $multiplication, 'empty_value' => '- - - - - -','required' => false, ))
+                ->add('hivernage', 'choice', array('choices' => $hivernage, 'empty_value' => '- - - - - -','required' => false, ))
+                ->add('protectionHiv1', 'choice', array('choices' => $protection_hiver, 'empty_value' => '- - - - - -','required' => false, ))
+                ->add('protectionHiv2', 'choice', array('choices' => $protection_hiver, 'empty_value' => '- - - - - -','required' => false, ))
                 ->add('roseraie')
                 ->add('idPlanteAqua')
                 ->add('medicinal', 'choice', array('choices' => $medicinal, 'empty_value' => '- - - - - -','required' => false))
