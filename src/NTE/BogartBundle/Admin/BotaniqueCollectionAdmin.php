@@ -276,7 +276,7 @@ class BotaniqueCollectionAdmin extends Admin
                 ->end()
             ;
             if ($this->getSubject() && $this->id($this->getSubject())) {
-                $formMapper->add('taxonFamille2', 'text', array('read_only' => true, 'label' => 'Taxon Ancienne Famille'));
+                $formMapper->add('taxonFamille2', 'text', array('read_only' => true, 'label' => 'Taxon Ancienne Famille', 'required' => false));
             }
             $formMapper
                 ->add('taxonControle', null, array('read_only' => true))
