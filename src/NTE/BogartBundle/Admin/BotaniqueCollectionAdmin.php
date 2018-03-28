@@ -272,12 +272,15 @@ class BotaniqueCollectionAdmin extends Admin
                 ->add('medicinal', 'choice', array('choices' => $medicinal, 'empty_value' => '- - - - - -','required' => false))
                 ->add('geographyteRegion', 'choice', array('choices' => $geophyte_region, 'empty_value' => '- - - - - -','required' => false))
                 ->add('geographyteId')
-
                 ->add('taxonFamille1', null, array('read_only' => true))
-                ->add('taxonFamille2', 'text', array('read_only' => true, 'label' => 'Taxon Ancienne Famille'))
+                ->end()
+            ;
+            if ($this->getSubject() && $this->id($this->getSubject())) {
+                $formMapper->add('taxonFamille2', 'text', array('read_only' => true, 'label' => 'Taxon Ancienne Famille'));
+            }
+            $formMapper
                 ->add('taxonControle', null, array('read_only' => true))
                 ->add('taxonBiblio', null, array('read_only' => true))
-
                 ->add('recolteNature1')
                 ->add('recolteNature2')
                 ->add('recolteNature3')
