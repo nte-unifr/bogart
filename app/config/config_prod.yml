@@ -21,4 +21,4 @@ monolog:
 sonata_media:
     cdn:
         server:
-             path: /bogart/uploads/media
+             path: /uploads/media
