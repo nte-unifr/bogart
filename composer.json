@@ -31,7 +31,7 @@
         "sonata-project/media-bundle" : "2.2.9",
         "knplabs/gaufrette" : "0.1.9",
         "white-october/pagerfanta-bundle": "dev-master",
-        "twig/twig": "1.23.0",
+        "twig/twig": "1.42.5",
         "genemu/form-bundle": "2.3.0"
     },
     "scripts": {
